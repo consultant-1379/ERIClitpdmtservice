@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="complete">
+	<parameter name="taf.repeat-count" value="1"/>
+	<test name="Transaction" preserve-order="true">
+		<classes>
+			<class name="com.ericsson.nms.litp.dmt.test.cases.WorkingCopiesRestTest"></class>
+			<class name="com.ericsson.nms.litp.dmt.test.cases.DMTNodeChildrenRestTest"></class>
+			<class name="com.ericsson.nms.litp.dmt.test.cases.DMTNodePropertiesRestTest"></class>
+			<class name="com.ericsson.nms.litp.dmt.test.cases.DMTItemTypesRestTest"></class>
+			<class name="com.ericsson.nms.litp.dmt.test.cases.DMTDeleteNodeRestTest"></class>
+			<class name="com.ericsson.nms.litp.dmt.test.cases.DMTCreateNodeRestTest"></class>
+			<class name="com.ericsson.nms.litp.dmt.test.cases.DMTUpdatePropertiesRestTest"></class>
+		</classes>
+	</test>
+</suite>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- ntp_extension.ntp_extension.NtpExtension.ntp-service -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../core_extension/software-item.xsd"/>
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:include schemaLocation="ntp-server.xsd"/>
+  <xs:complexType name="ntp-service-type">
+    <xs:annotation>
+      <xs:documentation>Network Time Daemon</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="software-item-type">
+        <xs:sequence>
+          <xs:element name="servers" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of ntp-server</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="ntp-server" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ntp-service" type="ntp-service-type" substitutionGroup="software-item"/>
+  <xs:complexType name="ntp-service-link-type">
+    <xs:annotation>
+      <xs:documentation>Network Time Daemon</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="software-item-link-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ntp-service-link" type="ntp-service-link-type" substitutionGroup="software-item-link"/>
+</xs:schema>

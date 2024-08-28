@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- nas_extension.nas_extension.NasExtension.nfs-file-system -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../core_extension/_basic_string.xsd"/>
+  <xs:include schemaLocation="../core_extension/_path_string.xsd"/>
+  <xs:include schemaLocation="../core_extension/file-system-base.xsd"/>
+  <xs:include schemaLocation="_mount_options.xsd"/>
+  <xs:include schemaLocation="_mount_status.xsd"/>
+  <xs:include schemaLocation="nfs-export.xsd"/>
+  <xs:include schemaLocation="nfs-virtual-server.xsd"/>
+  <xs:complexType name="nfs-file-system-type">
+    <xs:annotation>
+      <xs:documentation>This item represents or models the nfs client side</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="file-system-base-type">
+        <xs:sequence>
+          <xs:element name="mount_options" type="_mount_options-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Options connected with the NAS client</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="mount_point" type="_path_string-type">
+            <xs:annotation>
+              <xs:documentation>The mount point directory</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="mount_status" type="_mount_status-type">
+            <xs:annotation>
+              <xs:documentation>Command for puppet to run</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="_basic_string-type">
+            <xs:annotation>
+              <xs:documentation>Name of the nfs-file-system</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="network_name" type="_basic_string-type">
+            <xs:annotation>
+              <xs:documentation>Network name assigned to an ip range </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element ref="nfs-export-link">
+            <xs:annotation>
+              <xs:documentation>Reference to nfs-export</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element ref="nfs-virtual-server-link">
+            <xs:annotation>
+              <xs:documentation>Reference to nfs-virtual-server</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="nfs-file-system" type="nfs-file-system-type" substitutionGroup="file-system-base"/>
+  <xs:complexType name="nfs-file-system-link-type">
+    <xs:annotation>
+      <xs:documentation>This item represents or models the nfs client side</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="file-system-base-link-type">
+        <xs:sequence>
+          <xs:element name="mount_options" type="_mount_options-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Options connected with the NAS client</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="mount_point" type="_path_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The mount point directory</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="mount_status" type="_mount_status-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Command for puppet to run</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Name of the nfs-file-system</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="network_name" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Network name assigned to an ip range </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="nfs-file-system-link" type="nfs-file-system-link-type" substitutionGroup="file-system-base-link"/>
+</xs:schema>

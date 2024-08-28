@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns1:blade id="blade" xmlns:ns1="http://www.ericsson.com/litp">
+	<ns1:bmc id="bmc">
+		<ipaddress>192.168.160.1</ipaddress>
+		<password_key>pass2014</password_key>
+		<username>litp-usr</username>
+	</ns1:bmc>
+</ns1:blade>

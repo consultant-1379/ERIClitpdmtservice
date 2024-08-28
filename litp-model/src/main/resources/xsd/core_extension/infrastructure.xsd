@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- litp.extensions.core_extension.CoreExtension.infrastructure -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="infra-item.xsd"/>
+  <xs:include schemaLocation="networking.xsd"/>
+  <xs:include schemaLocation="service-provider.xsd"/>
+  <xs:include schemaLocation="storage.xsd"/>
+  <xs:include schemaLocation="system-provider.xsd"/>
+  <xs:include schemaLocation="system.xsd"/>
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:complexType name="infrastructure-type">
+    <xs:annotation>
+      <xs:documentation>/infrastructure root item contains infrastructure items.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-type">
+        <xs:sequence>
+          <xs:element name="items" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of infra-item</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="infra-item" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element ref="networking">
+            <xs:annotation>
+              <xs:documentation>Child of networking</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="service_providers" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of service-provider</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="service-provider" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element ref="storage">
+            <xs:annotation>
+              <xs:documentation>Child of storage</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="system_providers" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of system-provider</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="system-provider" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="systems" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of system</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="system" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="infrastructure" type="infrastructure-type"/>
+  <xs:complexType name="infrastructure-link-type">
+    <xs:annotation>
+      <xs:documentation>/infrastructure root item contains infrastructure items.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-link-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="infrastructure-link" type="infrastructure-link-type"/>
+</xs:schema>

@@ -1,0 +1,1931 @@
+{
+  "_embedded": {
+    "item-type": [
+      {
+        "description": "A storage volume group.",
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/volume-group"
+          }
+        },
+        "properties": {
+          "volume_group_name": {
+            "regex": "^([a-zA-Z0-9_/][a-zA-Z0-9_/-]*)$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/vol_group"
+              }
+            },
+            "id": "vol_group",
+            "description": "Name of Volume Group Item."
+          },
+          "volume_driver": {
+            "regex": "^(lvm|vxvm)$",
+            "description": "Logical volume managment driver. Must be one of ``vxvm`` and ``lvm``.",
+            "default": "lvm",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/vol_driver"
+              }
+            },
+            "id": "vol_driver"
+          }
+        },
+        "id": "volume-group"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/profile"
+          }
+        },
+        "id": "profile",
+        "description": "Base profile item."
+      },
+      {
+        "description": "libvirt Virtual Machine.",
+        "_links": {
+          "base-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/system"
+          },
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/libvirt-system"
+          }
+        },
+        "properties": {
+          "system_name": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Name of system."
+          },
+          "disk_size": {
+            "regex": "^[1-9][0-9]{0,}G$",
+            "description": "Size of Virtual Disk in Gigabytes.",
+            "default": "40G",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/libvirt_disk_size"
+              }
+            },
+            "id": "libvirt_disk_size"
+          },
+          "ram": {
+            "regex": "^[1-9][0-9]{2,}M$",
+            "description": "Size of RAM for Virtual Device in Megabytes.",
+            "default": "2048M",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/libvirt_ram_size"
+              }
+            },
+            "id": "libvirt_ram_size"
+          },
+          "cpus": {
+            "regex": "^[0-9]+$",
+            "description": "Number of CPUs to be given to VM.",
+            "default": "2",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/libvirt_cpu_number"
+              }
+            },
+            "id": "libvirt_cpu_number"
+          },
+          "path": {
+            "regex": "^/[A-Za-z0-9\\-\\._/#:\\s*]+$",
+            "description": "Path for VM image (Please ensure this path has appropriate space for the specified VM's).",
+            "default": "/var/lib/libvirt/images",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/path_string"
+              }
+            },
+            "id": "path_string"
+          },
+          "serial": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Serial number of system."
+          }
+        },
+        "id": "libvirt-system"
+      },
+      {
+        "description": "A bridge interface.",
+        "_links": {
+          "base-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/interface-base"
+          },
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/bridge"
+          }
+        },
+        "properties": {
+          "forwarding_delay": {
+            "regex": "^(([0-9])|([1-9][0-9]+))$",
+            "description": "Forwarding Delay in seconds between 0 and 300.",
+            "default": "0",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_seconds"
+              }
+            },
+            "id": "basic_seconds"
+          },
+          "interfaces": {
+            "regex": "^(([^-,]+)(, *[^-,]+)*)$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_interfaces"
+              }
+            },
+            "id": "basic_interfaces",
+            "description": "Network Interface names."
+          },
+          "bridge_name": {
+            "regex": "^br[a-zA-Z0-9\\-\\._]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_bridge_name"
+              }
+            },
+            "id": "basic_bridge_name",
+            "description": "Bridge name, must begin with characters \"br\"."
+          },
+          "stp": {
+            "regex": "^(on|off)$",
+            "description": "Spanning Tree Protocol.",
+            "default": "off",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_switch"
+              }
+            },
+            "id": "basic_switch"
+          }
+        },
+        "id": "bridge"
+      },
+      {
+        "description": "A shared clustered service.",
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/clustered-service"
+          }
+        },
+        "properties": {
+          "hostnames": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "hostnames of nodes to use for this clustered service."
+          }
+        },
+        "id": "clustered-service"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/deployment"
+          }
+        },
+        "id": "deployment",
+        "description": "A deployment."
+      },
+      {
+        "description": "A description of volume groups and file systems that live on them.",
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/storage-profile-base"
+          }
+        },
+        "properties": {
+          "storage_profile_name": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Name of storage profile."
+          }
+        },
+        "id": "storage-profile-base"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/cluster"
+          }
+        },
+        "id": "cluster",
+        "description": "A cluster of nodes."
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/system-provider"
+          }
+        },
+        "id": "system-provider",
+        "description": "Base system-provider item."
+      },
+      {
+        "description": "JEE deployable entity",
+        "_links": {
+          "base-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/deployable-entity"
+          },
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/jee-deployable-entity"
+          }
+        },
+        "properties": {
+          "install_source": {
+            "regex": "^/[A-Za-z0-9\\-\\._/#:\\s*]+$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/path_string"
+              }
+            },
+            "id": "path_string",
+            "description": "Path to the file delivered by package"
+          },
+          "name": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Name of the Deployable entity"
+          }
+        },
+        "id": "jee-deployable-entity"
+      },
+      {
+        "description": "A storage profile.",
+        "_links": {
+          "base-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/storage-profile-base"
+          },
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/storage-profile"
+          }
+        },
+        "properties": {
+          "storage_profile_name": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Name of storage profile."
+          }
+        },
+        "id": "storage-profile"
+      },
+      {
+        "description": "Base disk item",
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/disk"
+          }
+        },
+        "properties": {
+          "bootable": {
+            "regex": "^(true|false)$",
+            "description": "",
+            "default": "false",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_boolean"
+              }
+            },
+            "id": "basic_boolean"
+          },
+          "size": {
+            "regex": "^[1-9][0-9]{0,}[MGT]$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/disk_size"
+              }
+            },
+            "id": "disk_size",
+            "description": "Size of this disk."
+          },
+          "uuid": {
+            "regex": "^[a-zA-Z0-9_][?a-zA-Z0-9_-]*$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/disk_uuid"
+              }
+            },
+            "id": "disk_uuid",
+            "description": "UUID of this disk."
+          },
+          "name": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Name of this disk."
+          }
+        },
+        "id": "disk"
+      },
+      {
+        "description": "Base SATA device.",
+        "_links": {
+          "base-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/disk"
+          },
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/sata-block-device"
+          }
+        },
+        "properties": {
+          "bootable": {
+            "regex": "^(true|false)$",
+            "description": "",
+            "default": "false",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_boolean"
+              }
+            },
+            "id": "basic_boolean"
+          },
+          "uuid": {
+            "regex": "^[a-zA-Z0-9_][?a-zA-Z0-9_-]*$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/disk_uuid"
+              }
+            },
+            "id": "disk_uuid",
+            "description": "UUID of this disk."
+          },
+          "name": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Name of this disk."
+          },
+          "size": {
+            "regex": "^[1-9][0-9]{0,}[MGT]$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/disk_size"
+              }
+            },
+            "id": "disk_size",
+            "description": "Size of this disk."
+          }
+        },
+        "id": "sata-block-device"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/networking"
+          }
+        },
+        "id": "networking",
+        "description": "Networking configuration."
+      },
+      {
+        "description": "",
+        "_links": {
+          "base-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/interface-base"
+          },
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/network"
+          }
+        },
+        "properties": {
+          "bridge": {
+            "regex": "^[^-,]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_bridge"
+              }
+            },
+            "id": "basic_bridge",
+            "description": "Bridge name"
+          },
+          "default_gateway": {
+            "regex": "^(true|false)$",
+            "description": "Use this network's gateway as default route for the profile.",
+            "default": "false",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_boolean"
+              }
+            },
+            "id": "basic_boolean"
+          },
+          "tipc": {
+            "regex": "^(true|false)$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_boolean"
+              }
+            },
+            "id": "basic_boolean",
+            "description": "TIPC Network"
+          },
+          "vcs_lpr": {
+            "regex": "^(true|false)$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_boolean"
+              }
+            },
+            "id": "basic_boolean",
+            "description": "VCS Low Priority (Heartbeat) link"
+          },
+          "tipc_internal": {
+            "regex": "^(true|false)$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_boolean"
+              }
+            },
+            "id": "basic_boolean",
+            "description": "TIPC internal Network."
+          },
+          "interface": {
+            "regex": "^[^-,]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_interface"
+              }
+            },
+            "id": "basic_interface",
+            "description": "Network Interface name."
+          },
+          "network_name": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": ""
+          },
+          "ip_optional": {
+            "regex": "^(true|false)$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_boolean"
+              }
+            },
+            "id": "basic_boolean",
+            "description": "IP optional for this Network."
+          },
+          "vcs_llt": {
+            "regex": "^(true|false)$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_boolean"
+              }
+            },
+            "id": "basic_boolean",
+            "description": "VCS Low Latency (Heartbeat) link"
+          }
+        },
+        "id": "network"
+      },
+      {
+        "description": "JBOSS Runtime item.",
+        "_links": {
+          "base-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/runtime-entity"
+          },
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/jboss-runtime"
+          }
+        },
+        "properties": {
+          "name": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Name of JBOSS Runtime entity"
+          }
+        },
+        "id": "jboss-runtime"
+      },
+      {
+        "description": "A network profile.",
+        "_links": {
+          "base-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/network-profile-base"
+          },
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/network-profile"
+          }
+        },
+        "properties": {
+          "management_network": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Name of the network to be used for litp management (pxe boot, puppet communication)."
+          },
+          "name": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Name of the network profile."
+          }
+        },
+        "id": "network-profile"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/storage"
+          }
+        },
+        "id": "storage",
+        "description": "Storage configuration."
+      },
+      {
+        "description": "Base system item.",
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/system"
+          }
+        },
+        "properties": {
+          "system_name": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Name of system."
+          },
+          "serial": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Serial number of system."
+          }
+        },
+        "id": "system"
+      },
+      {
+        "description": "OS profile for a node.",
+        "_links": {
+          "base-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/profile"
+          },
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/os-profile"
+          }
+        },
+        "properties": {
+          "name": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Name of profile."
+          },
+          "kopts_post": {
+            "regex": "^[^=]*[=]{1,1}[^=]*$",
+            "description": "OS post-kernel options.",
+            "default": "console=ttyS0,115200",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/kopts_post"
+              }
+            },
+            "id": "kopts_post"
+          },
+          "breed": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "description": "Breedtecture of OS.",
+            "default": "redhat",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string"
+          },
+          "version": {
+            "regex": "^rhel6$",
+            "description": "Version of OS profile.",
+            "default": "rhel6",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/os_version"
+              }
+            },
+            "id": "os_version"
+          },
+          "path": {
+            "regex": "^[A-Za-z0-9\\-\\._/#:\\s*]+$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/file_path_string"
+              }
+            },
+            "id": "file_path_string",
+            "description": "Path to OS image."
+          },
+          "arch": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "description": "Architecture of OS.",
+            "default": "x86_64",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string"
+          }
+        },
+        "id": "os-profile"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/ms-service"
+          }
+        },
+        "id": "ms-service",
+        "description": "Base type for services (e.g. cobbler) modelled on the MS."
+      },
+      {
+        "description": "A physical device.",
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/physical-device"
+          }
+        },
+        "properties": {
+          "device_name": {
+            "regex": "^[^,-]+$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/disk_id"
+              }
+            },
+            "id": "disk_id",
+            "description": "Identifier of Physical-Device Item."
+          }
+        },
+        "id": "physical-device"
+      },
+      {
+        "description": "IP address range item.",
+        "_links": {
+          "base-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/network-range"
+          },
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/ip-range"
+          }
+        },
+        "properties": {
+          "subnet": {
+            "regex": "^.*$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/network"
+              }
+            },
+            "id": "network",
+            "description": "Subnet for ip-range."
+          },
+          "end": {
+            "regex": "^[0-9\\.]+$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/ipv4_address"
+              }
+            },
+            "id": "ipv4_address",
+            "description": "End address of ip-range."
+          },
+          "start": {
+            "regex": "^[0-9\\.]+$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/ipv4_address"
+              }
+            },
+            "id": "ipv4_address",
+            "description": "Start address of ip-range."
+          },
+          "address": {
+            "regex": "^[0-9\\.]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/ipv4_address"
+              }
+            },
+            "id": "ipv4_address",
+            "description": "Allocated address from ip-range."
+          },
+          "network_name": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Network name for ip-range.This must be unique to each ip-range."
+          },
+          "gateway": {
+            "regex": "^[0-9\\.]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/ipv4_address"
+              }
+            },
+            "id": "ipv4_address",
+            "description": "Gateway for ip-range."
+          }
+        },
+        "id": "ip-range"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/infra-item"
+          }
+        },
+        "id": "infra-item",
+        "description": "Base infrastructure item."
+      },
+      {
+        "description": "libvirt Virtual Machine provider.",
+        "_links": {
+          "base-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/system-provider"
+          },
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/libvirt-provider"
+          }
+        },
+        "properties": {
+          "bridge": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "description": "Bridge interface name.",
+            "default": "br0",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string"
+          },
+          "name": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Name of this libvirt-provider."
+          }
+        },
+        "id": "libvirt-provider"
+      },
+      {
+        "description": "CBA software item.",
+        "_links": {
+          "base-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/software-item"
+          },
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/cba-software"
+          }
+        },
+        "properties": {
+          "version": {
+            "regex": "^R[A-Z0-9]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/pkg_version"
+              }
+            },
+            "id": "pkg_version",
+            "description": "Software version"
+          },
+          "component_name": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Name of software component"
+          }
+        },
+        "id": "cba-software"
+      },
+      {
+        "description": "A single Compute Node.",
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/node"
+          }
+        },
+        "properties": {
+          "hostname": {
+            "regex": "^(\\.[a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/hostname"
+              }
+            },
+            "id": "hostname",
+            "description": "hostname for this node."
+          },
+          "node_id": {
+            "regex": "^.*$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/node_id"
+              }
+            },
+            "id": "node_id",
+            "description": ""
+          }
+        },
+        "id": "node"
+      },
+      {
+        "description": "A Baseboard Management Controller.",
+        "_links": {
+          "base-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/bmc-base"
+          },
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/bmc"
+          }
+        },
+        "properties": {
+          "username": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Username."
+          },
+          "ipaddress": {
+            "regex": "^[0-9\\.]+$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/ipv4_address"
+              }
+            },
+            "id": "ipv4_address",
+            "description": "IP V4 Address."
+          },
+          "password_key": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Password Key."
+          }
+        },
+        "id": "bmc"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/infrastructure"
+          }
+        },
+        "id": "infrastructure",
+        "description": "/infrastructure root item contains infrastructure items."
+      },
+      {
+        "description": "Base network profile.",
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/network-profile-base"
+          }
+        },
+        "properties": {
+          "name": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Name of the network profile."
+          }
+        },
+        "id": "network-profile-base"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/deployable-entity"
+          }
+        },
+        "id": "deployable-entity",
+        "description": "Base deployable entity item."
+      },
+      {
+        "description": "A network interface.",
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/nic"
+          }
+        },
+        "properties": {
+          "macaddress": {
+            "regex": "^([a-fA-F0-9]{2}(:|\\-)){5}([a-fA-F0-9]{2})$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/mac_address"
+              }
+            },
+            "id": "mac_address",
+            "description": "MAC address of this NIC"
+          },
+          "interface_name": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Interface name for the NIC"
+          }
+        },
+        "id": "nic"
+      },
+      {
+        "description": "Pool server.",
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/ntp-server"
+          }
+        },
+        "properties": {
+          "options": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "description": "Properties for a pool server, for example 'iburst', 'prefer'.",
+            "default": "",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string"
+          },
+          "server": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Host address of a pool server."
+          }
+        },
+        "id": "ntp-server"
+      },
+      {
+        "description": "an HA Cluster with HA is provided by Core MW",
+        "_links": {
+          "base-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/cluster"
+          },
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/cmw-cluster"
+          }
+        },
+        "properties": {
+          "cli_timeout": {
+            "regex": "^[0-9]+$",
+            "description": "Maximum time, in seconds, to wait for a cli command to execute",
+            "default": 2100,
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/integer"
+              }
+            },
+            "id": "integer"
+          },
+          "admin_op_timeout": {
+            "regex": "^[0-9]+$",
+            "description": "Maximum time, in seconds, for administrative operations during a campaign",
+            "default": 1800,
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/integer"
+              }
+            },
+            "id": "integer"
+          },
+          "cluster_id": {
+            "regex": "^[0-9]+$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/cluster_id"
+              }
+            },
+            "id": "cluster_id",
+            "description": "Unique number to identify Cluster"
+          },
+          "max_time_leaving_cluster": {
+            "regex": "^[0-9]+$",
+            "description": "Maximum time, in minutes, to wait for a node to rejoin the cluster",
+            "default": 35,
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/integer"
+              }
+            },
+            "id": "integer"
+          },
+          "campaign_reboot_timeout": {
+            "regex": "^[0-9]+$",
+            "description": "Maximum time, in seconds, to wait for a node to reboot during a campaign",
+            "default": 2100,
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/integer"
+              }
+            },
+            "id": "integer"
+          },
+          "imm_command_timeout": {
+            "regex": "^[0-9]+$",
+            "description": "Maximum time, in seconds, to wait for a IMM command to finish",
+            "default": 900,
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/integer"
+              }
+            },
+            "id": "integer"
+          },
+          "quick_reboot": {
+            "regex": "^on$|^off$",
+            "description": "Set if BIOS is to be bypassed at boot time",
+            "default": "off",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/quick_reboot"
+              }
+            },
+            "id": "quick_reboot"
+          }
+        },
+        "id": "cmw-cluster"
+      },
+      {
+        "description": "A basename for an interface which is used in the naming of that interface",
+        "_links": {
+          "base-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/interface-base"
+          },
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/interface"
+          }
+        },
+        "properties": {
+          "interface_basename": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": ""
+          }
+        },
+        "id": "interface"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/interface-base"
+          }
+        },
+        "id": "interface-base",
+        "description": "Base interface item."
+      },
+      {
+        "description": "A plan.",
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/plan"
+          }
+        },
+        "properties": {
+          "state": {
+            "regex": "^(running|stopped)$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/plan_state"
+              }
+            },
+            "id": "plan_state",
+            "description": "State of the plan."
+          }
+        },
+        "id": "plan"
+      },
+      {
+        "description": "VCS HA Cluster",
+        "_links": {
+          "base-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/cluster"
+          },
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/vcs-cluster"
+          }
+        },
+        "properties": {
+          "type": {
+            "regex": "^vcs$|^sfha$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/cluster_type"
+              }
+            },
+            "id": "cluster_type",
+            "description": ""
+          }
+        },
+        "id": "vcs-cluster"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/network-range"
+          }
+        },
+        "id": "network-range",
+        "description": "Base type for network addresses range."
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/phase"
+          }
+        },
+        "id": "phase",
+        "description": "A phase item, contains a set of tasks."
+      },
+      {
+        "description": "",
+        "_links": {
+          "base-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/software-item"
+          },
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/yum-repository"
+          }
+        },
+        "properties": {
+          "cache_metadata": {
+            "regex": "^(true|false)$",
+            "description": "Controls Yum metadata cache behaviour.",
+            "default": "false",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_boolean"
+              }
+            },
+            "id": "basic_boolean"
+          },
+          "ms_url_path": {
+            "regex": "^/[A-Za-z0-9\\-\\._/#:\\s*]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/path_string"
+              }
+            },
+            "id": "path_string",
+            "description": "Yum Repository Path on MS."
+          },
+          "name": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/yum_name"
+              }
+            },
+            "id": "yum_name",
+            "description": "Yum Repository Name."
+          },
+          "base_url": {
+            "regex": "^((http|file)://[a-zA-Zf0-9\\./\\-_:]+)$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/yum_base_url"
+              }
+            },
+            "id": "yum_base_url",
+            "description": "Yum Repository URL."
+          }
+        },
+        "id": "yum-repository"
+      },
+      {
+        "description": "A blade rack.",
+        "_links": {
+          "base-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/system"
+          },
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/blade-rack"
+          }
+        },
+        "properties": {
+          "system_name": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Name of system."
+          },
+          "serial": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Serial number of system."
+          }
+        },
+        "id": "blade-rack"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/software-item"
+          }
+        },
+        "id": "software-item",
+        "description": "Base software item."
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/task"
+          }
+        },
+        "id": "task",
+        "description": "A task item in plan."
+      },
+      {
+        "description": "Software package to install.",
+        "_links": {
+          "base-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/software-item"
+          },
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/package"
+          }
+        },
+        "properties": {
+          "name": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Name of package to install/remove.Needs to match the filename of the underlying RPM."
+          },
+          "repository": {
+            "regex": "^.*$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/any_string"
+              }
+            },
+            "id": "any_string",
+            "description": "Name of repository to get Package."
+          },
+          "config": {
+            "regex": "^(keep|replace)$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/package_config"
+              }
+            },
+            "id": "package_config",
+            "description": "Handling of pre-existing configuration files. Must be either 'keep' or 'replace'."
+          },
+          "version": {
+            "regex": "^(latest|[a-zA-Z0-9\\._]+)$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/package_version"
+              }
+            },
+            "id": "package_version",
+            "description": "Package version to install/remove."
+          },
+          "release": {
+            "regex": "^.*$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/any_string"
+              }
+            },
+            "id": "any_string",
+            "description": "Release number of package to install/remove."
+          },
+          "arch": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Architecture (cpu) of package to install/remove."
+          }
+        },
+        "id": "package"
+      },
+      {
+        "description": "Base SCSI device.",
+        "_links": {
+          "base-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/disk"
+          },
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/scsi-block-device"
+          }
+        },
+        "properties": {
+          "bootable": {
+            "regex": "^(true|false)$",
+            "description": "",
+            "default": "false",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_boolean"
+              }
+            },
+            "id": "basic_boolean"
+          },
+          "uuid": {
+            "regex": "^[a-zA-Z0-9_][?a-zA-Z0-9_-]*$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/disk_uuid"
+              }
+            },
+            "id": "disk_uuid",
+            "description": "UUID of this disk."
+          },
+          "name": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Name of this disk."
+          },
+          "size": {
+            "regex": "^[1-9][0-9]{0,}[MGT]$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/disk_size"
+              }
+            },
+            "id": "disk_size",
+            "description": "Size of this disk."
+          }
+        },
+        "id": "scsi-block-device"
+      },
+      {
+        "description": "A blade system.",
+        "_links": {
+          "base-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/system"
+          },
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/blade"
+          }
+        },
+        "properties": {
+          "system_name": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Name of system."
+          },
+          "serial": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Serial number of system."
+          }
+        },
+        "id": "blade"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/bmc-base"
+          }
+        },
+        "id": "bmc-base",
+        "description": "Base BMC item."
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/runtime-entity"
+          }
+        },
+        "id": "runtime-entity",
+        "description": "Base runtime entity item."
+      },
+      {
+        "description": "Network Time Daemon",
+        "_links": {
+          "base-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/software-item"
+          },
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/ntp-service"
+          }
+        },
+        "properties": {
+          "ensure": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "description": "Install NTP service",
+            "default": "latest",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string"
+          }
+        },
+        "id": "ntp-service"
+      },
+      {
+        "description": "Management Server.",
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/ms"
+          }
+        },
+        "properties": {
+          "hostname": {
+            "regex": "^(\\.[a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])$",
+            "description": "hostname for this node.",
+            "default": "ms1",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/hostname"
+              }
+            },
+            "id": "hostname"
+          }
+        },
+        "id": "ms"
+      },
+      {
+        "description": "Collection of software packages to install.",
+        "_links": {
+          "base-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/software-item"
+          },
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/package-list"
+          }
+        },
+        "properties": {
+          "version": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Version of package collection"
+          },
+          "name": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Name of package collection"
+          }
+        },
+        "id": "package-list"
+      },
+      {
+        "description": "A cobbler service.",
+        "_links": {
+          "base-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/ms-service"
+          },
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/cobbler-service"
+          }
+        },
+        "properties": {
+          "ksm_ksname": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "description": "The name of the kickstart file.",
+            "default": "litp.ks",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string"
+          },
+          "manage_dns": {
+            "regex": "^(true|false)$",
+            "description": "It enables Cobbler's DHCP management features",
+            "default": "false",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_boolean"
+              }
+            },
+            "id": "basic_boolean"
+          },
+          "puppet_auto_setup": {
+            "regex": "^(true|false)$",
+            "description": "It ensures that Puppet is installed during machine provision.",
+            "default": "true",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_boolean"
+              }
+            },
+            "id": "basic_boolean"
+          },
+          "ksm_path": {
+            "regex": "^[A-Za-z0-9\\-\\._/#:\\s*]+$",
+            "description": "Location where the kickstart file is placed.",
+            "default": "/var/lib/cobbler/kickstarts",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/file_path_string"
+              }
+            },
+            "id": "file_path_string"
+          },
+          "manage_dhcp": {
+            "regex": "^(true|false)$",
+            "description": "Allow Cobbler to manage a local DHCP server.",
+            "default": "true",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_boolean"
+              }
+            },
+            "id": "basic_boolean"
+          },
+          "authentication": {
+            "regex": "^((authn_configfile)|(authn_testing))$",
+            "description": "Cobbler authentication method.",
+            "default": "authn_configfile",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/cobbler_authentication"
+              }
+            },
+            "id": "cobbler_authentication"
+          },
+          "remove_old_puppet_certs_automatically": {
+            "regex": "^(true|false)$",
+            "description": "It ensures Cobbler removes old Puppet certs automatically.",
+            "default": "true",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_boolean"
+              }
+            },
+            "id": "basic_boolean"
+          },
+          "sign_puppet_certs_automatically": {
+            "regex": "^(true|false)$",
+            "description": "It ensures Cobbler signs Puppet certs automatically.",
+            "default": "true",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_boolean"
+              }
+            },
+            "id": "basic_boolean"
+          },
+          "boot_network": {
+            "regex": "^[a-zA-Z0-9\\-\\._]+$",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+              }
+            },
+            "id": "basic_string",
+            "description": "Network for Cobbler and PXE."
+          },
+          "rsync_disabled": {
+            "regex": "^(true|false)$",
+            "description": "Setting to disable Cobbler rsync.",
+            "default": "false",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/basic_boolean"
+              }
+            },
+            "id": "basic_boolean"
+          },
+          "ksm_selinux_mode": {
+            "regex": "^((enforcing)|(permissive)|(disabled))$",
+            "description": "This is the selinux security policy within the kickstart file.",
+            "default": "enforcing",
+            "required": false,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/selinux_mode"
+              }
+            },
+            "id": "selinux_mode"
+          }
+        },
+        "id": "cobbler-service"
+      },
+      {
+        "description": "A file system.",
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/file-system"
+          }
+        },
+        "properties": {
+          "mount_point": {
+            "regex": "^(swap|(/[a-zA-Z0-9_/-]*))$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/fs_mount_point"
+              }
+            },
+            "id": "fs_mount_point",
+            "description": "File System Mount Point."
+          },
+          "type": {
+            "regex": "^(ext4|raw|swap)$",
+            "description": "File System Type.",
+            "default": "ext4",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/fs_type"
+              }
+            },
+            "id": "fs_type"
+          },
+          "size": {
+            "regex": "^[1-9][0-9]{0,}[MGT]$",
+            "required": true,
+            "_links": {
+              "self": {
+                "href": "https://ms1:9999/litp/rest/v1/property-types/fs_size"
+              }
+            },
+            "id": "fs_size",
+            "description": "File System Size."
+          }
+        },
+        "id": "file-system"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/root"
+          }
+        },
+        "id": "root",
+        "description": "root item for /."
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/software"
+          }
+        },
+        "id": "software",
+        "description": "/software root item contains software."
+      }
+    ]
+  },
+  "_links": {
+    "self": {
+      "href": "https://ms1:9999/litp/rest/v1/item-types"
+    }
+  },
+  "id": "item-types"
+}

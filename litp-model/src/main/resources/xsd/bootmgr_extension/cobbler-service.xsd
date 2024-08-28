@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- bootmgr_extension.bootmgr_extension.BootManagerExtension.cobbler-service -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="_cobbler_authentication.xsd"/>
+  <xs:include schemaLocation="_selinux_mode.xsd"/>
+  <xs:include schemaLocation="../core_extension/_basic_boolean.xsd"/>
+  <xs:include schemaLocation="../core_extension/_basic_string.xsd"/>
+  <xs:include schemaLocation="../core_extension/_file_path_string.xsd"/>
+  <xs:include schemaLocation="../core_extension/ms-service.xsd"/>
+  <xs:complexType name="cobbler-service-type">
+    <xs:annotation>
+      <xs:documentation>A cobbler service.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ms-service-type">
+        <xs:sequence>
+          <xs:element name="authentication" type="_cobbler_authentication-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Cobbler authentication method.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="boot_network" type="_basic_string-type">
+            <xs:annotation>
+              <xs:documentation>Network for Cobbler and PXE.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ksm_ksname" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The name of the kickstart file.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ksm_path" type="_file_path_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Location where the kickstart file is placed.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ksm_selinux_mode" type="_selinux_mode-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>This is the selinux security policy within the kickstart file.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="manage_dhcp" type="_basic_boolean-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Allow Cobbler to manage a local DHCP server.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="manage_dns" type="_basic_boolean-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>It enables Cobbler's DHCP management features</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="puppet_auto_setup" type="_basic_boolean-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>It ensures that Puppet is installed during machine provision.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="remove_old_puppet_certs_automatically" type="_basic_boolean-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>It ensures Cobbler removes old Puppet certs automatically.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="rsync_disabled" type="_basic_boolean-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Setting to disable Cobbler rsync.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="sign_puppet_certs_automatically" type="_basic_boolean-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>It ensures Cobbler signs Puppet certs automatically.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="cobbler-service" type="cobbler-service-type" substitutionGroup="ms-service"/>
+  <xs:complexType name="cobbler-service-link-type">
+    <xs:annotation>
+      <xs:documentation>A cobbler service.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ms-service-link-type">
+        <xs:sequence>
+          <xs:element name="authentication" type="_cobbler_authentication-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Cobbler authentication method.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="boot_network" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Network for Cobbler and PXE.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ksm_ksname" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The name of the kickstart file.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ksm_path" type="_file_path_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Location where the kickstart file is placed.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ksm_selinux_mode" type="_selinux_mode-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>This is the selinux security policy within the kickstart file.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="manage_dhcp" type="_basic_boolean-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Allow Cobbler to manage a local DHCP server.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="manage_dns" type="_basic_boolean-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>It enables Cobbler's DHCP management features</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="puppet_auto_setup" type="_basic_boolean-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>It ensures that Puppet is installed during machine provision.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="remove_old_puppet_certs_automatically" type="_basic_boolean-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>It ensures Cobbler removes old Puppet certs automatically.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="rsync_disabled" type="_basic_boolean-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Setting to disable Cobbler rsync.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="sign_puppet_certs_automatically" type="_basic_boolean-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>It ensures Cobbler signs Puppet certs automatically.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="cobbler-service-link" type="cobbler-service-link-type" substitutionGroup="ms-service-link"/>
+</xs:schema>

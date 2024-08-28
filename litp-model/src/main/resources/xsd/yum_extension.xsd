@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- yum_extension.yum_extension.YumExtension -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="yum_extension/_yum_name.xsd"/>
+  <xs:include schemaLocation="yum_extension/_yum_base_url.xsd"/>
+  <xs:include schemaLocation="yum_extension/yum-repository.xsd"/>
+</xs:schema>

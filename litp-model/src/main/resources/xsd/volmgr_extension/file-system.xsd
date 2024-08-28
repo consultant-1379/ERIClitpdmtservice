@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- volmgr_extension.volmgr_extension.VolMgrExtension.file-system -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:include schemaLocation="_fs_mount_point.xsd"/>
+  <xs:include schemaLocation="_fs_size.xsd"/>
+  <xs:include schemaLocation="_fs_type.xsd"/>
+  <xs:include schemaLocation="_snap_name.xsd"/>
+  <xs:include schemaLocation="_snap_size.xsd"/>
+  <xs:complexType name="file-system-type">
+    <xs:annotation>
+      <xs:documentation>A file-system.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-type">
+        <xs:sequence>
+          <xs:element name="mount_point" type="_fs_mount_point-type">
+            <xs:annotation>
+              <xs:documentation>File-System Mount Point.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="size" type="_fs_size-type">
+            <xs:annotation>
+              <xs:documentation>File-System Size.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="snap_name" type="_snap_name-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Name for Volume-Group snapshot.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="snap_size" type="_snap_size-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Size to be reserved in a Volume-Group for snapshot (percentage of fs.size property).</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="type" type="_fs_type-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>File-System Type.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="file-system" type="file-system-type"/>
+  <xs:complexType name="file-system-link-type">
+    <xs:annotation>
+      <xs:documentation>A file-system.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-link-type">
+        <xs:sequence>
+          <xs:element name="mount_point" type="_fs_mount_point-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>File-System Mount Point.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="size" type="_fs_size-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>File-System Size.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="snap_name" type="_snap_name-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Name for Volume-Group snapshot.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="snap_size" type="_snap_size-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Size to be reserved in a Volume-Group for snapshot (percentage of fs.size property).</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="type" type="_fs_type-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>File-System Type.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="file-system-link" type="file-system-link-type"/>
+</xs:schema>

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- nas_extension.nas_extension.NasExtension._management_ip -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="_management_ip-type">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9\.]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

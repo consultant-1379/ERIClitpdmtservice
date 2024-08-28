@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- litp.extensions.core_extension.CoreExtension.network-profile-base -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="_basic_string.xsd"/>
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:complexType name="network-profile-base-type">
+    <xs:annotation>
+      <xs:documentation>Base network profile.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-type">
+        <xs:sequence>
+          <xs:element name="name" type="_basic_string-type">
+            <xs:annotation>
+              <xs:documentation>Name of the network profile.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="network-profile-base" type="network-profile-base-type"/>
+  <xs:complexType name="network-profile-base-link-type">
+    <xs:annotation>
+      <xs:documentation>Base network profile.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-link-type">
+        <xs:sequence>
+          <xs:element name="name" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Name of the network profile.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="network-profile-base-link" type="network-profile-base-link-type"/>
+</xs:schema>

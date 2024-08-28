@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- bmc_extension.bmc_extension.BmcExtension.bmc -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../core_extension/_basic_string.xsd"/>
+  <xs:include schemaLocation="../core_extension/_ipv4_address.xsd"/>
+  <xs:include schemaLocation="../core_extension/bmc-base.xsd"/>
+  <xs:complexType name="bmc-type">
+    <xs:annotation>
+      <xs:documentation>A Baseboard Management Controller.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="bmc-base-type">
+        <xs:sequence>
+          <xs:element name="ipaddress" type="_ipv4_address-type">
+            <xs:annotation>
+              <xs:documentation>IP V4 Address.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="password_key" type="_basic_string-type">
+            <xs:annotation>
+              <xs:documentation>Password Key.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="username" type="_basic_string-type">
+            <xs:annotation>
+              <xs:documentation>Username.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="bmc" type="bmc-type" substitutionGroup="bmc-base"/>
+  <xs:complexType name="bmc-link-type">
+    <xs:annotation>
+      <xs:documentation>A Baseboard Management Controller.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="bmc-base-link-type">
+        <xs:sequence>
+          <xs:element name="ipaddress" type="_ipv4_address-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>IP V4 Address.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="password_key" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Password Key.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="username" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Username.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="bmc-link" type="bmc-link-type" substitutionGroup="bmc-base-link"/>
+</xs:schema>

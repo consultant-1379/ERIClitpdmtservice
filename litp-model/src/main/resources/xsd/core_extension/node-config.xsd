@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- litp.extensions.core_extension.CoreExtension.node-config -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:complexType name="node-config-type">
+    <xs:annotation>
+      <xs:documentation>Base type for node-specific configuration</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="node-config" type="node-config-type"/>
+  <xs:complexType name="node-config-link-type">
+    <xs:annotation>
+      <xs:documentation>Base type for node-specific configuration</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-link-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="node-config-link" type="node-config-link-type"/>
+</xs:schema>

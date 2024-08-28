@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- libvirt_extension.libvirt_extension.LibvirtExtension.libvirt-system -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../core_extension/_path_string.xsd"/>
+  <xs:include schemaLocation="../core_extension/system.xsd"/>
+  <xs:include schemaLocation="_libvirt_cpu_number.xsd"/>
+  <xs:include schemaLocation="_libvirt_ram_size.xsd"/>
+  <xs:complexType name="libvirt-system-type">
+    <xs:annotation>
+      <xs:documentation>libvirt Virtual Machine.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="system-type">
+        <xs:sequence>
+          <xs:element name="cpus" type="_libvirt_cpu_number-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Number of CPUs to be given to VM.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="path" type="_path_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Path for VM image (Please ensure this path has appropriate space for the specified VM's).</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ram" type="_libvirt_ram_size-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Size of RAM for Virtual Device in Megabytes.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="libvirt-system" type="libvirt-system-type" substitutionGroup="system"/>
+  <xs:complexType name="libvirt-system-link-type">
+    <xs:annotation>
+      <xs:documentation>libvirt Virtual Machine.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="system-link-type">
+        <xs:sequence>
+          <xs:element name="cpus" type="_libvirt_cpu_number-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Number of CPUs to be given to VM.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="path" type="_path_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Path for VM image (Please ensure this path has appropriate space for the specified VM's).</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ram" type="_libvirt_ram_size-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Size of RAM for Virtual Device in Megabytes.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="libvirt-system-link" type="libvirt-system-link-type" substitutionGroup="system-link"/>
+</xs:schema>

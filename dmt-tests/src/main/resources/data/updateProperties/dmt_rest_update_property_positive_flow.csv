@@ -1,0 +1,3 @@
+mode,baseURL,nodeURL,requestPropertyObject,expectedCreateResponseCode,createdProfileURL,requestModifyPropertyObject,expected200ResponseCode
+live,dmt/rest/wc/,model/software/profiles,"{""id"": ""rhel_6_X"",""type"": ""os-profile"",""properties"": {""name"": ""sample-profile"",""path"": ""/profiles/node-iso/""}}",201,model/software/profiles/rhel_6_X,"{""properties"": {""name"": ""sample-profile-test"",""path"": ""/profiles/node-iso/""}}",200
+local,dmt/rest/wc/,model/software/profiles,"{""id"": ""rhel_6_X"",""type"": ""os-profile"",""properties"": {""name"": ""sample-profile"",""path"": ""/profiles/node-iso/""}}",201,model/software/profiles/rhel_6_X,"{""properties"": {""name"": ""sample-profile-test"",""path"": ""/profiles/node-iso/""}}",200

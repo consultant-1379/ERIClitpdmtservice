@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- ntp_extension.ntp_extension.NtpExtension.ntp-server -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:include schemaLocation="_server.xsd"/>
+  <xs:complexType name="ntp-server-type">
+    <xs:annotation>
+      <xs:documentation>Pool server.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-type">
+        <xs:sequence>
+          <xs:element name="server" type="_server-type">
+            <xs:annotation>
+              <xs:documentation>Host address of a pool server.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ntp-server" type="ntp-server-type"/>
+  <xs:complexType name="ntp-server-link-type">
+    <xs:annotation>
+      <xs:documentation>Pool server.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-link-type">
+        <xs:sequence>
+          <xs:element name="server" type="_server-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Host address of a pool server.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ntp-server-link" type="ntp-server-link-type"/>
+</xs:schema>

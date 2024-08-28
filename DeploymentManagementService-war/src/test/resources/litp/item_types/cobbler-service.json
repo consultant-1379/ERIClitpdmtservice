@@ -1,0 +1,145 @@
+{
+  "properties": {
+    "boot_network": {
+      "regex": "^[a-zA-Z0-9\\-\\._]+$",
+      "required": false,
+      "_links": {
+        "self": {
+          "href": "https://159.107.167.160:9999/litp/rest/v1/property-types/basic_string"
+        }
+      },
+      "id": "basic_string",
+      "description": "Network for Cobbler and PXE."
+    },
+    "ksm_ksname": {
+      "regex": "^[a-zA-Z0-9\\-\\._]+$",
+      "description": "The name of the kickstart file.",
+      "default": "litp.ks",
+      "required": false,
+      "_links": {
+        "self": {
+          "href": "https://159.107.167.160:9999/litp/rest/v1/property-types/basic_string"
+        }
+      },
+      "id": "basic_string"
+    },
+    "manage_dns": {
+      "regex": "^(true|false)$",
+      "description": "It enables Cobbler's DHCP management features",
+      "default": "false",
+      "required": false,
+      "_links": {
+        "self": {
+          "href": "https://159.107.167.160:9999/litp/rest/v1/property-types/basic_boolean"
+        }
+      },
+      "id": "basic_boolean"
+    },
+    "ksm_path": {
+      "regex": "^[A-Za-z0-9\\-\\._/#:\\s*]+$",
+      "description": "Location where the kickstart file is placed.",
+      "default": "/var/lib/cobbler/kickstarts",
+      "required": false,
+      "_links": {
+        "self": {
+          "href": "https://159.107.167.160:9999/litp/rest/v1/property-types/file_path_string"
+        }
+      },
+      "id": "file_path_string"
+    },
+    "manage_dhcp": {
+      "regex": "^(true|false)$",
+      "description": "Allow Cobbler to manage a local DHCP server.",
+      "default": "true",
+      "required": false,
+      "_links": {
+        "self": {
+          "href": "https://159.107.167.160:9999/litp/rest/v1/property-types/basic_boolean"
+        }
+      },
+      "id": "basic_boolean"
+    },
+    "authentication": {
+      "regex": "^((authn_configfile)|(authn_testing))$",
+      "description": "Cobbler authentication method.",
+      "default": "authn_configfile",
+      "required": false,
+      "_links": {
+        "self": {
+          "href": "https://159.107.167.160:9999/litp/rest/v1/property-types/cobbler_authentication"
+        }
+      },
+      "id": "cobbler_authentication"
+    },
+    "remove_old_puppet_certs_automatically": {
+      "regex": "^(true|false)$",
+      "description": "It ensures Cobbler removes old Puppet certs automatically.",
+      "default": "true",
+      "required": false,
+      "_links": {
+        "self": {
+          "href": "https://159.107.167.160:9999/litp/rest/v1/property-types/basic_boolean"
+        }
+      },
+      "id": "basic_boolean"
+    },
+    "sign_puppet_certs_automatically": {
+      "regex": "^(true|false)$",
+      "description": "It ensures Cobbler signs Puppet certs automatically.",
+      "default": "true",
+      "required": false,
+      "_links": {
+        "self": {
+          "href": "https://159.107.167.160:9999/litp/rest/v1/property-types/basic_boolean"
+        }
+      },
+      "id": "basic_boolean"
+    },
+    "puppet_auto_setup": {
+      "regex": "^(true|false)$",
+      "description": "It ensures that Puppet is installed during machine provision.",
+      "default": "true",
+      "required": false,
+      "_links": {
+        "self": {
+          "href": "https://159.107.167.160:9999/litp/rest/v1/property-types/basic_boolean"
+        }
+      },
+      "id": "basic_boolean"
+    },
+    "rsync_disabled": {
+      "regex": "^(true|false)$",
+      "description": "Setting to disable Cobbler rsync.",
+      "default": "false",
+      "required": false,
+      "_links": {
+        "self": {
+          "href": "https://159.107.167.160:9999/litp/rest/v1/property-types/basic_boolean"
+        }
+      },
+      "id": "basic_boolean"
+    },
+    "ksm_selinux_mode": {
+      "regex": "^((enforcing)|(permissive)|(disabled))$",
+      "description": "This is the selinux security policy within the kickstart file.",
+      "default": "enforcing",
+      "required": false,
+      "_links": {
+        "self": {
+          "href": "https://159.107.167.160:9999/litp/rest/v1/property-types/selinux_mode"
+        }
+      },
+      "id": "selinux_mode"
+    }
+  },
+  "_links": {
+    "base-type": {
+      "href": "https://159.107.167.160:9999/litp/rest/v1/item-types/ms-service"
+    },
+    "self": {
+      "href": "https://159.107.167.160:9999/litp/rest/v1/item-types/cobbler-service"
+    }
+  },
+  "id": "cobbler-service",
+  "description": "A cobbler service."
+}

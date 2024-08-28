@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- nas_extension.nas_extension.NasExtension._mount_status -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="_mount_status-type">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(mounted|absent)"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

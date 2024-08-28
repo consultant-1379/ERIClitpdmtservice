@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- vcs_extension.vcs_extension.VcsExtension.vcs-cluster -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../core_extension/cluster.xsd"/>
+  <xs:include schemaLocation="../core_extension/disk.xsd"/>
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:include schemaLocation="../network_extension/network.xsd"/>
+  <xs:include schemaLocation="_cluster_type.xsd"/>
+  <xs:include schemaLocation="_vcs_cluster_id.xsd"/>
+  <xs:complexType name="vcs-cluster-type">
+    <xs:complexContent>
+      <xs:extension base="cluster-type">
+        <xs:sequence>
+          <xs:element name="id" type="_vcs_cluster_id-type" minOccurs="0"/>
+          <xs:element name="type" type="_cluster_type-type"/>
+          <xs:element name="fencing_disks" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of disk</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="disk" minOccurs="0" maxOccurs="3"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="heartbeat_networks">
+            <xs:annotation>
+              <xs:documentation>Ref-collection of network</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="network-link" minOccurs="1" maxOccurs="4"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element ref="network-link">
+            <xs:annotation>
+              <xs:documentation>Reference to network</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vcs-cluster" type="vcs-cluster-type" substitutionGroup="cluster"/>
+  <xs:complexType name="vcs-cluster-link-type">
+    <xs:complexContent>
+      <xs:extension base="cluster-link-type">
+        <xs:sequence>
+          <xs:element name="id" type="_vcs_cluster_id-type" minOccurs="0"/>
+          <xs:element name="type" type="_cluster_type-type" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vcs-cluster-link" type="vcs-cluster-link-type" substitutionGroup="cluster-link"/>
+</xs:schema>

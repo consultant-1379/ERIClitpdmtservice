@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://www.ericsson.com/dmt/complex_type_element"
+xmlns:dmt="http://www.ericsson.com/dmt/complex_type_element">
+
+	<complexType name="person_type">
+		<sequence>
+			<element name="firstName" type="string" />
+			<element name="age" type="integer" />
+		</sequence>
+	</complexType>
+
+	<element name="person" type="dmt:person_type" />
+</schema>

@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- litp.extensions.core_extension.CoreExtension.software -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="deployable-entity.xsd"/>
+  <xs:include schemaLocation="profile.xsd"/>
+  <xs:include schemaLocation="runtime-entity.xsd"/>
+  <xs:include schemaLocation="software-item.xsd"/>
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:complexType name="software-type">
+    <xs:annotation>
+      <xs:documentation>/software root item contains software.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-type">
+        <xs:sequence>
+          <xs:element name="deployables" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of deployable-entity</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="deployable-entity" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="items" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of software-item</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="software-item" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="profiles" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of profile</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="profile" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="runtimes" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of runtime-entity</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="runtime-entity" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="software" type="software-type"/>
+  <xs:complexType name="software-link-type">
+    <xs:annotation>
+      <xs:documentation>/software root item contains software.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-link-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="software-link" type="software-link-type"/>
+</xs:schema>

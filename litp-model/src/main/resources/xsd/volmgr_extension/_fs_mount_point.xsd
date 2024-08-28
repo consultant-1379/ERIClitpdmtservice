@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- volmgr_extension.volmgr_extension.VolMgrExtension._fs_mount_point -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="_fs_mount_point-type">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(swap|(/[a-zA-Z0-9_/-]*))"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,47 @@
+{
+  "properties": {
+    "username": {
+      "regex": "^[a-zA-Z0-9\\-\\._]+$",
+      "required": true,
+      "_links": {
+        "self": {
+          "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+        }
+      },
+      "id": "basic_string",
+      "description": "Username."
+    },
+    "ipaddress": {
+      "regex": "^[0-9\\.]+$",
+      "required": true,
+      "_links": {
+        "self": {
+          "href": "https://ms1:9999/litp/rest/v1/property-types/ipv4_address"
+        }
+      },
+      "id": "ipv4_address",
+      "description": "IP V4 Address."
+    },
+    "password_key": {
+      "regex": "^[a-zA-Z0-9\\-\\._]+$",
+      "required": true,
+      "_links": {
+        "self": {
+          "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+        }
+      },
+      "id": "basic_string",
+      "description": "Password Key."
+    }
+  },
+  "_links": {
+    "base-type": {
+      "href": "https://ms1:9999/litp/rest/v1/item-types/bmc-base"
+    },
+    "self": {
+      "href": "https://ms1:9999/litp/rest/v1/item-types/bmc"
+    }
+  },
+  "id": "bmc",
+  "description": "A Baseboard Management Controller."
+}

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- litp.extensions.core_extension.CoreExtension.software-item -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:complexType name="software-item-type">
+    <xs:annotation>
+      <xs:documentation>Base software item.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="software-item" type="software-item-type"/>
+  <xs:complexType name="software-item-link-type">
+    <xs:annotation>
+      <xs:documentation>Base software item.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-link-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="software-item-link" type="software-item-link-type"/>
+</xs:schema>

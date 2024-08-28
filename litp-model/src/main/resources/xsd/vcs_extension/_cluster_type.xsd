@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- vcs_extension.vcs_extension.VcsExtension._cluster_type -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="_cluster_type-type">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(vcs|sfha)"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,13 @@
+{
+  "item-type-name": "ref-collection-of-software-item",
+  "state": "Initial",
+  "_links": {
+    "self": {
+      "href": "https://ms1:9999/litp/rest/v1/ms/items"
+    },
+    "ref-collection-of": {
+      "href": "https://ms1:9999/litp/rest/v1/item-types/software-item"
+    }
+  },
+  "id": "items"
+}

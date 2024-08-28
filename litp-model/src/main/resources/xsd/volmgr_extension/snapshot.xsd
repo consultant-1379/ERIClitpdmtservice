@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- volmgr_extension.volmgr_extension.VolMgrExtension.snapshot -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../core_extension/snapshot-base.xsd"/>
+  <xs:complexType name="snapshot-type">
+    <xs:annotation>
+      <xs:documentation>LITP snapshot</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="snapshot-base-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="snapshot" type="snapshot-type" substitutionGroup="snapshot-base"/>
+  <xs:complexType name="snapshot-link-type">
+    <xs:annotation>
+      <xs:documentation>LITP snapshot</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="snapshot-base-link-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="snapshot-link" type="snapshot-link-type" substitutionGroup="snapshot-base-link"/>
+</xs:schema>

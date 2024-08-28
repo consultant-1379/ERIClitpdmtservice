@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- litp.extensions.core_extension.CoreExtension._ha_manager -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="_ha_manager-type">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(cmw|vcs)$|^"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

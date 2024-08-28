@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- litp.extensions.core_extension.CoreExtension.file-system-base -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:complexType name="file-system-base-type">
+    <xs:annotation>
+      <xs:documentation>Base type for a file system</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="file-system-base" type="file-system-base-type"/>
+  <xs:complexType name="file-system-base-link-type">
+    <xs:annotation>
+      <xs:documentation>Base type for a file system</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-link-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="file-system-base-link" type="file-system-base-link-type"/>
+</xs:schema>

@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- litp.extensions.core_extension.CoreExtension.os-profile -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="_basic_string.xsd"/>
+  <xs:include schemaLocation="_kopts_post.xsd"/>
+  <xs:include schemaLocation="_os_version.xsd"/>
+  <xs:include schemaLocation="_path_string.xsd"/>
+  <xs:include schemaLocation="profile.xsd"/>
+  <xs:complexType name="os-profile-type">
+    <xs:annotation>
+      <xs:documentation>OS profile for a node.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="profile-type">
+        <xs:sequence>
+          <xs:element name="arch" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Architecture of OS.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="breed" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Breedtecture of OS.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="kopts_post" type="_kopts_post-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>OS post-kernel options.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="_basic_string-type">
+            <xs:annotation>
+              <xs:documentation>Name of profile.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="path" type="_path_string-type">
+            <xs:annotation>
+              <xs:documentation>Path to OS image.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="version" type="_os_version-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Version of OS profile.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="os-profile" type="os-profile-type" substitutionGroup="profile"/>
+  <xs:complexType name="os-profile-link-type">
+    <xs:annotation>
+      <xs:documentation>OS profile for a node.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="profile-link-type">
+        <xs:sequence>
+          <xs:element name="arch" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Architecture of OS.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="breed" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Breedtecture of OS.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="kopts_post" type="_kopts_post-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>OS post-kernel options.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Name of profile.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="path" type="_path_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Path to OS image.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="version" type="_os_version-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Version of OS profile.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="os-profile-link" type="os-profile-link-type" substitutionGroup="profile-link"/>
+</xs:schema>

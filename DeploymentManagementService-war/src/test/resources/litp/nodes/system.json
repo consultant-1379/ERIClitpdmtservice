@@ -1,0 +1,16 @@
+{
+  "item-type-name": "reference-to-system",
+  "state": "Initial",
+  "_links": {
+    "self": {
+      "href": "https://ms1:9999/litp/rest/v1/ms/system"
+    },
+    "reference-to": {
+      "href": "https://ms1:9999/litp/rest/v1/infrastructure/systems/ms_system"
+    }
+  },
+  "id": "system",
+  "properties": {
+    "system_name": "MS"
+  }
+}

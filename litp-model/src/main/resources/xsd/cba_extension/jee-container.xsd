@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- cba_extension.cba_extension.CBAExtension.jee-container -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../core_extension/_basic_string.xsd"/>
+  <xs:include schemaLocation="../core_extension/_path_string.xsd"/>
+  <xs:include schemaLocation="../core_extension/deployable-entity.xsd"/>
+  <xs:include schemaLocation="../core_extension/runtime-entity.xsd"/>
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:complexType name="jee-container-type">
+    <xs:annotation>
+      <xs:documentation>A java EE service runtime</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="runtime-entity-type">
+        <xs:sequence>
+          <xs:element name="install_source" type="_path_string-type">
+            <xs:annotation>
+              <xs:documentation>Path to the file delivered by package</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="_basic_string-type" minOccurs="0"/>
+          <xs:element name="deployables" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of deployable-entity</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="deployable-entity" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="jee-container" type="jee-container-type" substitutionGroup="runtime-entity"/>
+  <xs:complexType name="jee-container-link-type">
+    <xs:annotation>
+      <xs:documentation>A java EE service runtime</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="runtime-entity-link-type">
+        <xs:sequence>
+          <xs:element name="install_source" type="_path_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Path to the file delivered by package</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="_basic_string-type" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="jee-container-link" type="jee-container-link-type" substitutionGroup="runtime-entity-link"/>
+</xs:schema>

@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- volmgr_extension.volmgr_extension.VolMgrExtension -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="volmgr_extension/_fs_type.xsd"/>
+  <xs:include schemaLocation="volmgr_extension/_fs_mount_point.xsd"/>
+  <xs:include schemaLocation="volmgr_extension/_fs_size.xsd"/>
+  <xs:include schemaLocation="volmgr_extension/_snap_size.xsd"/>
+  <xs:include schemaLocation="volmgr_extension/_disk_id.xsd"/>
+  <xs:include schemaLocation="volmgr_extension/_vol_group.xsd"/>
+  <xs:include schemaLocation="volmgr_extension/_vol_driver.xsd"/>
+  <xs:include schemaLocation="volmgr_extension/_snap_name.xsd"/>
+  <xs:include schemaLocation="volmgr_extension/file-system.xsd"/>
+  <xs:include schemaLocation="volmgr_extension/physical-device.xsd"/>
+  <xs:include schemaLocation="volmgr_extension/volume-group.xsd"/>
+  <xs:include schemaLocation="volmgr_extension/storage-profile.xsd"/>
+  <xs:include schemaLocation="volmgr_extension/snapshot.xsd"/>
+</xs:schema>

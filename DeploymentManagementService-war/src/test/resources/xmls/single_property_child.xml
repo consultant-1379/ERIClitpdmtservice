@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns1:ms id="ms" xmlns:ns1="http://www.ericsson.com/litp">
+	<hostname>mshostname</hostname>
+</ns1:ms>

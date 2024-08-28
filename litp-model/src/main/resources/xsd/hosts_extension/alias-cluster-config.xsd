@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- hosts_extension.hostsextension.HostsExtension.alias-cluster-config -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../core_extension/cluster-config.xsd"/>
+  <xs:include schemaLocation="alias.xsd"/>
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:complexType name="alias-cluster-config-type">
+    <xs:complexContent>
+      <xs:extension base="cluster-config-type">
+        <xs:sequence>
+          <xs:element name="aliases" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Ref-collection of alias</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="alias-link" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="alias-cluster-config" type="alias-cluster-config-type" substitutionGroup="cluster-config"/>
+  <xs:complexType name="alias-cluster-config-link-type">
+    <xs:complexContent>
+      <xs:extension base="cluster-config-link-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="alias-cluster-config-link" type="alias-cluster-config-link-type" substitutionGroup="cluster-config-link"/>
+</xs:schema>

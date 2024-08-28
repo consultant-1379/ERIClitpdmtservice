@@ -1,0 +1,72 @@
+{
+  "_embedded": {
+    "item": [
+      {
+        "required": false,
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/bmc-base"
+          }
+        },
+        "id": "bmc",
+        "description": "Child of bmc-base"
+      },
+      {
+        "max": 9999,
+        "min": 0,
+        "_links": {
+          "collection-of": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/disk"
+          }
+        },
+        "id": "disks",
+        "description": "Collection of disk"
+      },
+      {
+        "max": 9999,
+        "min": 0,
+        "_links": {
+          "collection-of": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/nic"
+          }
+        },
+        "id": "network_interfaces",
+        "description": "Collection of nic"
+      }
+    ]
+  },
+  "properties": {
+    "system_name": {
+      "regex": "^[a-zA-Z0-9\\-\\._]+$",
+      "required": true,
+      "_links": {
+        "self": {
+          "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+        }
+      },
+      "id": "basic_string",
+      "description": "Name of system."
+    },
+    "serial": {
+      "regex": "^[a-zA-Z0-9\\-\\._]+$",
+      "required": false,
+      "_links": {
+        "self": {
+          "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+        }
+      },
+      "id": "basic_string",
+      "description": "Serial number of system."
+    }
+  },
+  "_links": {
+    "base-type": {
+      "href": "https://ms1:9999/litp/rest/v1/item-types/system"
+    },
+    "self": {
+      "href": "https://ms1:9999/litp/rest/v1/item-types/blade"
+    }
+  },
+  "id": "blade",
+  "description": "A blade system."
+}

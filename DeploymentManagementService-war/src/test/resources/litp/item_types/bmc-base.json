@@ -1,0 +1,9 @@
+{
+  "_links": {
+    "self": {
+      "href": "https://ms1:9999/litp/rest/v1/item-types/bmc-base"
+    }
+  },
+  "id": "bmc-base",
+  "description": "Base BMC item."
+}

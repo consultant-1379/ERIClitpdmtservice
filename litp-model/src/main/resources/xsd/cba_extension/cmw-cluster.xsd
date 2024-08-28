@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- cba_extension.cba_extension.CBAExtension.cmw-cluster -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="_cluster_id.xsd"/>
+  <xs:include schemaLocation="_quick_reboot.xsd"/>
+  <xs:include schemaLocation="../core_extension/_integer.xsd"/>
+  <xs:include schemaLocation="../core_extension/cluster.xsd"/>
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:include schemaLocation="../network_extension/network.xsd"/>
+  <xs:complexType name="cmw-cluster-type">
+    <xs:annotation>
+      <xs:documentation>A cmw-cluster is a cluster of nodes with High Availability(HA), where the HA manageris provided by Core MiddleWare(CMW).</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="cluster-type">
+        <xs:sequence>
+          <xs:element name="admin_op_timeout" type="_integer-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Maximum time, in seconds, for administrative operations while running a campaign</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="campaign_reboot_timeout" type="_integer-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Maximum time, in seconds, to wait for a node to reboot while running a campaign</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="cli_timeout" type="_integer-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Maximum time, in seconds, to wait for a cli command to execute</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="cluster_id" type="_cluster_id-type">
+            <xs:annotation>
+              <xs:documentation>Unique number to identify Cluster</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="imm_command_timeout" type="_integer-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Maximum time, in seconds, to wait for a IMM command to finish</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="max_time_leaving_cluster" type="_integer-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Maximum time, in minutes, to wait for a node to rejoin the cluster</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="quick_reboot" type="_quick_reboot-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Set if BIOS is to be bypassed at boot time</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="heartbeat_networks">
+            <xs:annotation>
+              <xs:documentation>Ref-collection of network</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="network-link" minOccurs="1" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element ref="network-link">
+            <xs:annotation>
+              <xs:documentation>Reference to network</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="cmw-cluster" type="cmw-cluster-type" substitutionGroup="cluster"/>
+  <xs:complexType name="cmw-cluster-link-type">
+    <xs:annotation>
+      <xs:documentation>A cmw-cluster is a cluster of nodes with High Availability(HA), where the HA manageris provided by Core MiddleWare(CMW).</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="cluster-link-type">
+        <xs:sequence>
+          <xs:element name="admin_op_timeout" type="_integer-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Maximum time, in seconds, for administrative operations while running a campaign</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="campaign_reboot_timeout" type="_integer-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Maximum time, in seconds, to wait for a node to reboot while running a campaign</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="cli_timeout" type="_integer-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Maximum time, in seconds, to wait for a cli command to execute</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="cluster_id" type="_cluster_id-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Unique number to identify Cluster</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="imm_command_timeout" type="_integer-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Maximum time, in seconds, to wait for a IMM command to finish</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="max_time_leaving_cluster" type="_integer-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Maximum time, in minutes, to wait for a node to rejoin the cluster</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="quick_reboot" type="_quick_reboot-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Set if BIOS is to be bypassed at boot time</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="cmw-cluster-link" type="cmw-cluster-link-type" substitutionGroup="cluster-link"/>
+</xs:schema>

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- litp.extensions.core_extension.CoreExtension._plan_state -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="_plan_state-type">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(running|stopped)"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

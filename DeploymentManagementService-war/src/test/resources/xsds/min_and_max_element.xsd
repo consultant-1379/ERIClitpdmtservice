@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://www.ericsson.com/dmt/min_and_max_element"
+xmlns:dmt="http://www.ericsson.com/dmt/min_and_max_element">
+
+	<complexType name="person_type">
+		<sequence>
+			<element name="name" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+	<element name="person" type="dmt:person_type" />
+</schema>

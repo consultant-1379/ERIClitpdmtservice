@@ -1,0 +1,3 @@
+mode,baseURL,nodeURL,requestBody,expectedErrorMessage,expectedErrorType,expectedResponseCode,deleteUrl,expectedCreateResponseCode,expectedDeleteResponseCode
+local,dmt/rest/wc/,model/deployments,"{""id"":""dep_1"",""type"":""deployment""}","Item already exists in model: dep_1","ItemExistsError",409,model/deployments/dep_1,201,200
+live,dmt/rest/wc/,model/deployments,"{""id"":""dep_1"",""type"":""deployment""}","Item already exists in model: dep_1","ItemExistsError",409,model/deployments/dep_1,201,200

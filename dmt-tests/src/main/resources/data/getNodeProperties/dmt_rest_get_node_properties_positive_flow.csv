@@ -1,0 +1,7 @@
+mode,baseURL,nodeURL,expectedResponseCode,propertiesSize
+local,dmt/rest/wc/,model/software,200,0
+local,dmt/rest/wc/,model/ms,200,1
+local,dmt/rest/wc/,model/infrastructure/systems,200,0
+live,dmt/rest/wc/,model/software,200,0
+live,dmt/rest/wc/,model/ms,200,1
+live,dmt/rest/wc/,model/infrastructure/systems,200,0

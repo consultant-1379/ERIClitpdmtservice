@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- network_extension.network_extension.NetworkExtension.network-route -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../core_extension/_ipv4_address.xsd"/>
+  <xs:include schemaLocation="../core_extension/_network.xsd"/>
+  <xs:include schemaLocation="../core_extension/network-route-base.xsd"/>
+  <xs:complexType name="network-route-type">
+    <xs:annotation>
+      <xs:documentation>A non-local IPv4 route.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="network-route-base-type">
+        <xs:sequence>
+          <xs:element name="gateway" type="_ipv4_address-type">
+            <xs:annotation>
+              <xs:documentation>Destination gateway for network route.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="subnet" type="_network-type">
+            <xs:annotation>
+              <xs:documentation>Destination subnet for network route.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="network-route" type="network-route-type" substitutionGroup="network-route-base"/>
+  <xs:complexType name="network-route-link-type">
+    <xs:annotation>
+      <xs:documentation>A non-local IPv4 route.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="network-route-base-link-type">
+        <xs:sequence>
+          <xs:element name="gateway" type="_ipv4_address-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Destination gateway for network route.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="subnet" type="_network-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Destination subnet for network route.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="network-route-link" type="network-route-link-type" substitutionGroup="network-route-base-link"/>
+</xs:schema>

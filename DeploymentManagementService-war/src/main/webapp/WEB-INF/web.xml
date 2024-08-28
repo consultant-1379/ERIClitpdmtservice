@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	
+	<env-entry>
+		<description>Resource base URI for LITP REST service</description>
+		<env-entry-name>litpRestBaseUri</env-entry-name>
+		<env-entry-type>java.lang.String</env-entry-type>
+		<env-entry-value>https://ms1:9999/litp/rest/v1</env-entry-value>
+	</env-entry>
+	
+	<env-entry>
+		<description>LITP service username</description>
+		<env-entry-name>litpUsername</env-entry-name>
+		<env-entry-type>java.lang.String</env-entry-type>
+		<env-entry-value>litp-admin</env-entry-value>
+	</env-entry>
+	
+	<env-entry>
+		<description>LITP service password</description>
+		<env-entry-name>litpPassword</env-entry-name>
+		<env-entry-type>java.lang.String</env-entry-type>
+		<env-entry-value>pas2014</env-entry-value>
+	</env-entry>
+</web-app>

@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- litp.extensions.core_extension.CoreExtension.clustered-service -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="_basic_string.xsd"/>
+  <xs:include schemaLocation="_integer.xsd"/>
+  <xs:include schemaLocation="_positive_integer.xsd"/>
+  <xs:include schemaLocation="node.xsd"/>
+  <xs:include schemaLocation="runtime-entity.xsd"/>
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:complexType name="clustered-service-type">
+    <xs:annotation>
+      <xs:documentation>A clustered service describes a service running on nodes in this cluster, using the HA manager which controls this cluster.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-type">
+        <xs:sequence>
+          <xs:element name="active" type="_positive_integer-type">
+            <xs:annotation>
+              <xs:documentation>Active nodes</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="_basic_string-type">
+            <xs:annotation>
+              <xs:documentation>Name of clustered service</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="standby" type="_integer-type">
+            <xs:annotation>
+              <xs:documentation>Standby nodes</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="dependencies" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Ref-collection of clustered-service</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="clustered-service-link" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="nodes" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Ref-collection of node</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="node-link" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="runtimes" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of runtime-entity</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="runtime-entity" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="clustered-service" type="clustered-service-type"/>
+  <xs:complexType name="clustered-service-link-type">
+    <xs:annotation>
+      <xs:documentation>A clustered service describes a service running on nodes in this cluster, using the HA manager which controls this cluster.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-link-type">
+        <xs:sequence>
+          <xs:element name="active" type="_positive_integer-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Active nodes</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Name of clustered service</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="standby" type="_integer-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Standby nodes</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="clustered-service-link" type="clustered-service-link-type"/>
+</xs:schema>

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- litp.extensions.core_extension.CoreExtension._mac_address -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="_mac_address-type">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="([a-fA-F0-9]{2}(:|\-)){5}([a-fA-F0-9]{2})"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

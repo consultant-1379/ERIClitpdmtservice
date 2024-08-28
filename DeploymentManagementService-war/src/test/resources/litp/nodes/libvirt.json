@@ -1,0 +1,17 @@
+{
+  "required": "services",
+  "properties": {
+    "name": "libvirt1"
+  },
+  "item-type-name": "reference-to-libvirt-provider",
+  "state": "Initial",
+  "_links": {
+    "self": {
+      "href": "https://ms1:9999/litp/rest/v1/ms/libvirt"
+    },
+    "reference-to": {
+      "href": "https://ms1:9999/litp/rest/v1/infrastructure/system_providers/libvirt1"
+    }
+  },
+  "id": "libvirt"
+}

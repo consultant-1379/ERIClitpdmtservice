@@ -1,0 +1,7 @@
+mode,baseURL,nodeURL,expectedResponseCode,expectedItemName
+local,dmt/rest/wc/,model/deployments/addable_item_types,200,"deployment"
+local,dmt/rest/wc/,model/software/profiles/addable_item_types,200,"os-profile"
+local,dmt/rest/wc/,model/ms/services/addable_item_types,200,"cobbler-service"
+live,dmt/rest/wc/,model/deployments/addable_item_types,200,"deployment"
+live,dmt/rest/wc/,model/software/profiles/addable_item_types,200,"os-profile"
+live,dmt/rest/wc/,model/ms/services/addable_item_types,200,"cobbler-service"

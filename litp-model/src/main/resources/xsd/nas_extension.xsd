@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- nas_extension.nas_extension.NasExtension -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="nas_extension/_mount_point.xsd"/>
+  <xs:include schemaLocation="nas_extension/_mount_status.xsd"/>
+  <xs:include schemaLocation="nas_extension/_mount_options.xsd"/>
+  <xs:include schemaLocation="nas_extension/_export_name.xsd"/>
+  <xs:include schemaLocation="nas_extension/_allowed_clients.xsd"/>
+  <xs:include schemaLocation="nas_extension/_service_name.xsd"/>
+  <xs:include schemaLocation="nas_extension/_management_ip.xsd"/>
+  <xs:include schemaLocation="nas_extension/nfs-export.xsd"/>
+  <xs:include schemaLocation="nas_extension/nfs-service.xsd"/>
+  <xs:include schemaLocation="nas_extension/nfs-virtual-server.xsd"/>
+  <xs:include schemaLocation="nas_extension/nfs-file-system.xsd"/>
+</xs:schema>

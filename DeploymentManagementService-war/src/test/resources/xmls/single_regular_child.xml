@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns1:root id="root" xmlns:ns1="http://www.ericsson.com/litp" >
+  <ns1:infrastructure id="infrastructure">
+    <items/>
+    <networking id=""/>
+    <service_providers/>
+    <storage id=""/>
+    <system_providers/>
+    <systems/>
+  </ns1:infrastructure>
+</ns1:root>

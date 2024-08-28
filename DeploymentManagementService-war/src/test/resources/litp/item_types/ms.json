@@ -1,0 +1,115 @@
+{
+  "_embedded": {
+    "item": [
+      {
+        "default": false,
+        "required": false,
+        "_links": {
+          "reference-to": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/storage-profile-base"
+          }
+        },
+        "id": "storage_profile",
+        "description": "Reference to storage-profile-base"
+      },
+      {
+        "max": 9999,
+        "min": 0,
+        "_links": {
+          "ref-collection-of": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/software-item"
+          }
+        },
+        "id": "items",
+        "description": "Ref-collection of software-item"
+      },
+      {
+        "default": false,
+        "required": false,
+        "_links": {
+          "reference-to": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/system"
+          }
+        },
+        "id": "system",
+        "description": "Reference to system"
+      },
+      {
+        "default": false,
+        "required": false,
+        "_links": {
+          "reference-to": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/libvirt-provider"
+          }
+        },
+        "id": "libvirt",
+        "description": "Reference to libvirt-provider"
+      },
+      {
+        "default": false,
+        "required": false,
+        "_links": {
+          "reference-to": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/network-profile-base"
+          }
+        },
+        "id": "network_profile",
+        "description": "Reference to network-profile-base"
+      },
+      {
+        "max": 9999,
+        "min": 0,
+        "_links": {
+          "ref-collection-of": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/ip-range"
+          }
+        },
+        "id": "ipaddresses",
+        "description": "Ref-collection of ip-range"
+      },
+      {
+        "max": 9999,
+        "min": 0,
+        "_links": {
+          "collection-of": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/ms-service"
+          }
+        },
+        "id": "services",
+        "description": "Collection of ms-service"
+      },
+      {
+        "default": false,
+        "required": false,
+        "_links": {
+          "reference-to": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/os-profile"
+          }
+        },
+        "id": "os",
+        "description": "Reference to os-profile"
+      }
+    ]
+  },
+  "properties": {
+    "hostname": {
+      "regex": "^(\\.[a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])$",
+      "description": "hostname for this node.",
+      "default": "ms1",
+      "required": true,
+      "_links": {
+        "self": {
+          "href": "https://ms1:9999/litp/rest/v1/property-types/hostname"
+        }
+      },
+      "id": "hostname"
+    }
+  },
+  "_links": {
+    "self": {
+      "href": "https://ms1:9999/litp/rest/v1/item-types/ms"
+    }
+  },
+  "id": "ms",
+  "description": "Management Server."
+}

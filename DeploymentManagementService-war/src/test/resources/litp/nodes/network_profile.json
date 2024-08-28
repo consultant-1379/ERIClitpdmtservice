@@ -1,0 +1,16 @@
+{
+  "item-type-name": "reference-to-network-profile",
+  "state": "Initial",
+  "_links": {
+    "self": {
+      "href": "https://ms1:9999/litp/rest/v1/ms/network_profile"
+    },
+    "reference-to": {
+      "href": "https://ms1:9999/litp/rest/v1/infrastructure/networking/network_profiles/libvirt_provider"
+    }
+  },
+  "id": "network_profile",
+  "properties": {
+    "name": "libvirt_provider"
+  }
+}

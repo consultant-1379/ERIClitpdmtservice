@@ -1,0 +1,7 @@
+mode,baseURL,nodeURL,expectedResponseCode,nodeId
+local,dmt/rest/wc/,model/children,200,"infrastructure"
+local,dmt/rest/wc/,model/ms/children,200,"services"
+local,dmt/rest/wc/,model/software/children,200,"items"
+live,dmt/rest/wc/,model/children,200,"infrastructure"
+live,dmt/rest/wc/,model/ms/children,200,"services"
+live,dmt/rest/wc/,model/software/children,200,"items"

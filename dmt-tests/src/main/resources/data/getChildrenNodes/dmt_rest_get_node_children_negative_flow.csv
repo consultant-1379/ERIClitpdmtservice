@@ -1,0 +1,3 @@
+mode,baseURL,nodeURL,expectedResponseCode,expectedErrorMessage,expectedErrorType
+local,dmt/rest/wc/,model/childrens,404,"Not found","InvalidLocationError"
+live,dmt/rest/wc/,model/childrens,404,"Not found","InvalidLocationError"

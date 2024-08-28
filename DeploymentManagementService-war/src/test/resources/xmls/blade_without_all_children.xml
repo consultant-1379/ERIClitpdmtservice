@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<litp:blade id="blade" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:litp="http://www.ericsson.com/litp">
+	<serial>serial</serial>
+	<system_name>system_name</system_name>
+	<disks>
+		<litp:disk id="disks">
+			<size>size</size>
+			<uuid>uuid</uuid>
+		</litp:disk>
+	</disks>
+	<network_interfaces>
+		<litp:nic id="nic">
+			<interface_name>123456</interface_name>
+			<macaddress>macaddress</macaddress>
+		</litp:nic>
+	</network_interfaces>
+</litp:blade>

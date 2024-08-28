@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://www.ericsson.com/dmt/attribute_element"
+	xmlns:dmt="http://www.ericsson.com/dmt/attribute_element">
+
+	<complexType name="person_type">
+		<sequence>
+			<element name="firstName" type="string" />
+		</sequence>
+		<attribute name="id" use="required" />
+		<attribute name="pps" use="optional" default="999" />
+		<attribute name="gender" fixed="male" />
+	</complexType>
+
+	<element name="person" type="dmt:person_type" />
+</schema>

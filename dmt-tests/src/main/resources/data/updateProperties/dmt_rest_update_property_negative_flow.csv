@@ -1,0 +1,7 @@
+mode,baseURL,nodeURL,expectedResponseCode,requestPropertyObject,expectedErrorType
+local,dmt/rest/wc/,model/ms,422,"{""properties"":{""hostnames"":""ChangedPropB""}}","PropertyNotAllowedError"
+local,dmt/rest/wc/,model/ms,422,"{""properties"":{""hostname"":"" ""}}","RegexError"
+local,dmt/rest/wc/,model/ms,422,"{""properties"":{""hostname"":""1""}}","RegexError"
+live,dmt/rest/wc/,model/ms,422,"{""properties"":{""hostnames"":""ChangedPropB""}}","PropertyNotAllowedError"
+live,dmt/rest/wc/,model/ms,422,"{""properties"":{""hostname"":"" ""}}","RegexError"
+live,dmt/rest/wc/,model/ms,422,"{""properties"":{""hostname"":""1""}}","RegexError"

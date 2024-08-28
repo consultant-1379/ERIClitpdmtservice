@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- litp.extensions.core_extension.CoreExtension.cluster -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="_ha_manager.xsd"/>
+  <xs:include schemaLocation="cluster-config.xsd"/>
+  <xs:include schemaLocation="clustered-service.xsd"/>
+  <xs:include schemaLocation="node.xsd"/>
+  <xs:include schemaLocation="software-item.xsd"/>
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:complexType name="cluster-type">
+    <xs:annotation>
+      <xs:documentation>A cluster of nodes.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-type">
+        <xs:sequence>
+          <xs:element name="ha_manager" type="_ha_manager-type" minOccurs="0"/>
+          <xs:element name="configs" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of cluster-config</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="cluster-config" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="nodes">
+            <xs:annotation>
+              <xs:documentation>Collection of node</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="node" minOccurs="1" maxOccurs="50"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="services" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of clustered-service</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="clustered-service" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="software" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Ref-collection of software-item</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="software-item-link" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="cluster" type="cluster-type"/>
+  <xs:complexType name="cluster-link-type">
+    <xs:annotation>
+      <xs:documentation>A cluster of nodes.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-link-type">
+        <xs:sequence>
+          <xs:element name="ha_manager" type="_ha_manager-type" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="cluster-link" type="cluster-link-type"/>
+</xs:schema>

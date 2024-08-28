@@ -1,0 +1,5 @@
+mode,baseURL,nodeURL,requestBody,expectedResponseCode,deleteUrl,expectedCreateResponseCode
+local,dmt/rest/wc/,model/deployments,"{""id"":""test1"",""type"":""deployment""}",200,model/deployments/test1,201
+local,dmt/rest/wc/,model/infrastructure/systems,"{""id"":""test1"",""type"":""blade"",""properties"":{""system_name"":""test"",""serial"":""test""}}",200,model/infrastructure/systems/test1,201
+live,dmt/rest/wc/,model/deployments,"{""id"":""test1"",""type"":""deployment""}",200,model/deployments/test1,201
+live,dmt/rest/wc/,model/infrastructure/systems,"{""id"":""test1"",""type"":""blade"",""properties"":{""system_name"":""test"",""serial"":""test""}}",200,model/infrastructure/systems/test1,201

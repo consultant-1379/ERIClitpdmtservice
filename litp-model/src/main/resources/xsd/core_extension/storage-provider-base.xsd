@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- litp.extensions.core_extension.CoreExtension.storage-provider-base -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:complexType name="storage-provider-base-type">
+    <xs:annotation>
+      <xs:documentation>Base type for a storage provider</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="storage-provider-base" type="storage-provider-base-type"/>
+  <xs:complexType name="storage-provider-base-link-type">
+    <xs:annotation>
+      <xs:documentation>Base type for a storage provider</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-link-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="storage-provider-base-link" type="storage-provider-base-link-type"/>
+</xs:schema>

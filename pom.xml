@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.ericsson.litp</groupId>
+        <artifactId>integration</artifactId>
+        <version>1.14.2</version>
+    </parent>
+	
+    <groupId>LITP</groupId>
+    <artifactId>ERIClitpdmtservice</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.46-SNAPSHOT</version>
+    <name>Deployment Management Service</name>
+
+    <modules>
+		<module>litp-model</module>
+		<module>DeploymentManagementService-war</module>			
+        <module>ERIClitpdmtservice_CXP9030613-rpm</module>	
+    </modules>
+	
+	<properties>
+		<version.service.framework>2.0.7</version.service.framework>	
+		<version.modeling.service>1.0.40</version.modeling.service>
+	</properties>
+    
+    <dependencyManagement>    
+		<dependencies>
+			<dependency>
+				<groupId>com.ericsson.oss.itpf.sdk</groupId>
+				<artifactId>ServiceFrameworkJBossBOM</artifactId>
+				<version>${version.service.framework}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>	
+			<dependency>
+				<groupId>com.ericsson.oss.itpf.modeling</groupId>
+				<artifactId>Modeling-BOM</artifactId>
+				<version>${version.modeling.service}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+    <build>
+    	<pluginManagement>
+    		<plugins>
+    			<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+    			<plugin>
+    				<groupId>org.eclipse.m2e</groupId>
+    				<artifactId>lifecycle-mapping</artifactId>
+    				<version>1.0.0</version>
+    				<configuration>
+    					<lifecycleMappingMetadata>
+    						<pluginExecutions>
+    							<pluginExecution>
+    								<pluginExecutionFilter>
+    									<groupId>
+    										org.codehaus.mojo
+    									</groupId>
+    									<artifactId>
+    										build-helper-maven-plugin
+    									</artifactId>
+    									<versionRange>
+    										[1.7,)
+    									</versionRange>
+    									<goals>
+    										<goal>regex-property</goal>
+    									</goals>
+    								</pluginExecutionFilter>
+    								<action>
+    									<ignore />
+    								</action>
+    							</pluginExecution>
+    						</pluginExecutions>
+    					</lifecycleMappingMetadata>
+    				</configuration>
+    			</plugin>
+    		</plugins>
+    	</pluginManagement>
+    </build>
+
+    <scm>
+        <connection>${ericsson.scm.url}</connection>
+        <developerConnection>${ericsson.scm.url}</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+</project>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- volmgr_extension.volmgr_extension.VolMgrExtension.storage-profile -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../core_extension/storage-profile-base.xsd"/>
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:include schemaLocation="volume-group.xsd"/>
+  <xs:complexType name="storage-profile-type">
+    <xs:annotation>
+      <xs:documentation>A storage-profile.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="storage-profile-base-type">
+        <xs:sequence>
+          <xs:element name="volume_groups">
+            <xs:annotation>
+              <xs:documentation>Collection of volume-group</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="volume-group" minOccurs="1" maxOccurs="255"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="storage-profile" type="storage-profile-type" substitutionGroup="storage-profile-base"/>
+  <xs:complexType name="storage-profile-link-type">
+    <xs:annotation>
+      <xs:documentation>A storage-profile.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="storage-profile-base-link-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="storage-profile-link" type="storage-profile-link-type" substitutionGroup="storage-profile-base-link"/>
+</xs:schema>

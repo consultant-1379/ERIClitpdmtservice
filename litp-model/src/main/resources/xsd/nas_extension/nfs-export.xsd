@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- nas_extension.nas_extension.NasExtension.nfs-export -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../core_extension/_any_string.xsd"/>
+  <xs:include schemaLocation="../core_extension/_basic_string.xsd"/>
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:include schemaLocation="_allowed_clients.xsd"/>
+  <xs:complexType name="nfs-export-type">
+    <xs:annotation>
+      <xs:documentation>The export to be shared</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-type">
+        <xs:sequence>
+          <xs:element name="allowed_clients" type="_allowed_clients-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The client(s) that areallowed access the export</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="export_options" type="_any_string-type">
+            <xs:annotation>
+              <xs:documentation>Options connected with the export</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="file_system" type="_any_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The export path</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="_basic_string-type">
+            <xs:annotation>
+              <xs:documentation>The name of the export</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="prefix" type="_any_string-type">
+            <xs:annotation>
+              <xs:documentation>The prefix of export path</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="nfs-export" type="nfs-export-type"/>
+  <xs:complexType name="nfs-export-link-type">
+    <xs:annotation>
+      <xs:documentation>The export to be shared</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-link-type">
+        <xs:sequence>
+          <xs:element name="allowed_clients" type="_allowed_clients-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The client(s) that areallowed access the export</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="export_options" type="_any_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Options connected with the export</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="file_system" type="_any_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The export path</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The name of the export</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="prefix" type="_any_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The prefix of export path</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="nfs-export-link" type="nfs-export-link-type"/>
+</xs:schema>

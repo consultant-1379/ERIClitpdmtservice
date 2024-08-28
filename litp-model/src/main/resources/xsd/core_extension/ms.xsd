@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- litp.extensions.core_extension.CoreExtension.ms -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="_hostname.xsd"/>
+  <xs:include schemaLocation="ip-range.xsd"/>
+  <xs:include schemaLocation="ms-service.xsd"/>
+  <xs:include schemaLocation="network-profile-base.xsd"/>
+  <xs:include schemaLocation="network-route-base.xsd"/>
+  <xs:include schemaLocation="node-config.xsd"/>
+  <xs:include schemaLocation="os-profile.xsd"/>
+  <xs:include schemaLocation="software-item.xsd"/>
+  <xs:include schemaLocation="storage-profile-base.xsd"/>
+  <xs:include schemaLocation="system.xsd"/>
+  <xs:include schemaLocation="../libvirt_extension/libvirt-provider.xsd"/>
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:complexType name="ms-type">
+    <xs:annotation>
+      <xs:documentation>Management Server.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-type">
+        <xs:sequence>
+          <xs:element name="hostname" type="_hostname-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>hostname for this node.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="configs" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of node-config</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="node-config" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="ip_routes" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Ref-collection of network-route-base</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="network-route-base-link" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="ipaddresses" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Ref-collection of ip-range</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="ip-range-link" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="items" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Ref-collection of software-item</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="software-item-link" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element ref="libvirt-provider-link" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Reference to libvirt-provider</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element ref="network-profile-base-link" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Reference to network-profile-base</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element ref="os-profile-link" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Reference to os-profile</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="services" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of ms-service</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="ms-service" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element ref="storage-profile-base-link" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Reference to storage-profile-base</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element ref="system-link" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Reference to system</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ms" type="ms-type"/>
+  <xs:complexType name="ms-link-type">
+    <xs:annotation>
+      <xs:documentation>Management Server.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-link-type">
+        <xs:sequence>
+          <xs:element name="hostname" type="_hostname-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>hostname for this node.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ms-link" type="ms-link-type"/>
+</xs:schema>

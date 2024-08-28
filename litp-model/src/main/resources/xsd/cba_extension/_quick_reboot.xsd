@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- cba_extension.cba_extension.CBAExtension._quick_reboot -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="_quick_reboot-type">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="on|off"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

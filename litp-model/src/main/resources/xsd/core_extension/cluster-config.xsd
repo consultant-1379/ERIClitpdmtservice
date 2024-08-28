@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- litp.extensions.core_extension.CoreExtension.cluster-config -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:complexType name="cluster-config-type">
+    <xs:annotation>
+      <xs:documentation>Configuration applied to the whole cluster</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="cluster-config" type="cluster-config-type"/>
+  <xs:complexType name="cluster-config-link-type">
+    <xs:annotation>
+      <xs:documentation>Configuration applied to the whole cluster</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-link-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="cluster-config-link" type="cluster-config-link-type"/>
+</xs:schema>

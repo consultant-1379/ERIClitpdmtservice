@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- network_extension.network_extension.NetworkExtension.network-profile -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../core_extension/_basic_string.xsd"/>
+  <xs:include schemaLocation="../core_extension/network-profile-base.xsd"/>
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:include schemaLocation="bridge.xsd"/>
+  <xs:include schemaLocation="interface.xsd"/>
+  <xs:include schemaLocation="network.xsd"/>
+  <xs:complexType name="network-profile-type">
+    <xs:annotation>
+      <xs:documentation>A network profile.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="network-profile-base-type">
+        <xs:sequence>
+          <xs:element name="management_network" type="_basic_string-type">
+            <xs:annotation>
+              <xs:documentation>Name of the network to be used for litp management (pxe boot, puppet communication).</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="bridges" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of bridge</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="bridge" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="interfaces" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of interface</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="interface" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="networks" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of network</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="network" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="network-profile" type="network-profile-type" substitutionGroup="network-profile-base"/>
+  <xs:complexType name="network-profile-link-type">
+    <xs:annotation>
+      <xs:documentation>A network profile.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="network-profile-base-link-type">
+        <xs:sequence>
+          <xs:element name="management_network" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Name of the network to be used for litp management (pxe boot, puppet communication).</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="network-profile-link" type="network-profile-link-type" substitutionGroup="network-profile-base-link"/>
+</xs:schema>

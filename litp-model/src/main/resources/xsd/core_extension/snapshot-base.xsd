@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- litp.extensions.core_extension.CoreExtension.snapshot-base -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="_timestamp.xsd"/>
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:complexType name="snapshot-base-type">
+    <xs:annotation>
+      <xs:documentation>LITP Snapshot</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-type">
+        <xs:sequence>
+          <xs:element name="timestamp" type="_timestamp-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Snapshot creation timestamp.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="snapshot-base" type="snapshot-base-type"/>
+  <xs:complexType name="snapshot-base-link-type">
+    <xs:annotation>
+      <xs:documentation>LITP Snapshot</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-link-type">
+        <xs:sequence>
+          <xs:element name="timestamp" type="_timestamp-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Snapshot creation timestamp.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="snapshot-base-link" type="snapshot-base-link-type"/>
+</xs:schema>

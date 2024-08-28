@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- yum_extension.yum_extension.YumExtension._yum_base_url -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="_yum_base_url-type">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="((http|https|file|ftp)://[a-zA-Zf0-9\./\-_:]+)"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- volmgr_extension.volmgr_extension.VolMgrExtension._fs_type -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="_fs_type-type">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(ext4|swap)"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

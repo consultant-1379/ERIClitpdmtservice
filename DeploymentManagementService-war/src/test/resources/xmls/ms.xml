@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ms id="ms" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<hostname>hostname</hostname>
+	<ipaddresses>
+		<ip-range-link id="ipRangeLink" />
+	</ipaddresses>
+	<items>
+		<software-item-link id="softwareItemLink" />
+	</items>
+	<libvirt-provider-link id="libvirtProviderLink">
+		<bridge>bridge</bridge>
+		<name>name</name>
+	</libvirt-provider-link>
+	<network-profile-base-link id="networkProfileBaseLink">
+		<name>name</name>
+	</network-profile-base-link>
+	<os-profile-link id="osProfileLink">
+		<arch>arch</arch>
+		<breed>breed</breed>
+		<name>name</name>
+	</os-profile-link>
+	<services>
+		<ms-service id="msService" />
+	</services>
+	<storage-profile-base-link id="storageProfilebaseLink">
+		<storage_profile_name>storage_profile_name</storage_profile_name>
+	</storage-profile-base-link>
+	<system-link id="systemLink">
+		<serial>serial</serial>
+		<system_name>system_name</system_name>
+	</system-link>
+</ms>

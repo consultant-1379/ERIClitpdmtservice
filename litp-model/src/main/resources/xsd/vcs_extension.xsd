@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- vcs_extension.vcs_extension.VcsExtension -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="vcs_extension/_cluster_type.xsd"/>
+  <xs:include schemaLocation="vcs_extension/_vcs_cluster_id.xsd"/>
+  <xs:include schemaLocation="vcs_extension/vcs-cluster.xsd"/>
+</xs:schema>

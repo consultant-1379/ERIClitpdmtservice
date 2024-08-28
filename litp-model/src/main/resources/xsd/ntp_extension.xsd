@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- ntp_extension.ntp_extension.NtpExtension -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="ntp_extension/_server.xsd"/>
+  <xs:include schemaLocation="ntp_extension/ntp-service.xsd"/>
+  <xs:include schemaLocation="ntp_extension/ntp-server.xsd"/>
+</xs:schema>

@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- volmgr_extension.volmgr_extension.VolMgrExtension.volume-group -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:include schemaLocation="_vol_driver.xsd"/>
+  <xs:include schemaLocation="_vol_group.xsd"/>
+  <xs:include schemaLocation="file-system.xsd"/>
+  <xs:include schemaLocation="physical-device.xsd"/>
+  <xs:complexType name="volume-group-type">
+    <xs:annotation>
+      <xs:documentation>A storage volume-group.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-type">
+        <xs:sequence>
+          <xs:element name="volume_driver" type="_vol_driver-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Logical volume managment driver. Must be one of ``vxvm`` and ``lvm``.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="volume_group_name" type="_vol_group-type">
+            <xs:annotation>
+              <xs:documentation>Name of Volume-Group Item.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="file_systems">
+            <xs:annotation>
+              <xs:documentation>Collection of file-system</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="file-system" minOccurs="1" maxOccurs="5"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="physical_devices">
+            <xs:annotation>
+              <xs:documentation>Collection of physical-device</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="physical-device" minOccurs="1" maxOccurs="1"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="volume-group" type="volume-group-type"/>
+  <xs:complexType name="volume-group-link-type">
+    <xs:annotation>
+      <xs:documentation>A storage volume-group.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-link-type">
+        <xs:sequence>
+          <xs:element name="volume_driver" type="_vol_driver-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Logical volume managment driver. Must be one of ``vxvm`` and ``lvm``.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="volume_group_name" type="_vol_group-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Name of Volume-Group Item.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="volume-group-link" type="volume-group-link-type"/>
+</xs:schema>

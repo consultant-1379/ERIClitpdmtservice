@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- network_extension.network_extension.NetworkExtension.bridge -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="_basic_bridge_name.xsd"/>
+  <xs:include schemaLocation="_basic_interfaces.xsd"/>
+  <xs:include schemaLocation="_basic_seconds.xsd"/>
+  <xs:include schemaLocation="_basic_switch.xsd"/>
+  <xs:include schemaLocation="interface-base.xsd"/>
+  <xs:complexType name="bridge-type">
+    <xs:annotation>
+      <xs:documentation>A bridge interface.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="interface-base-type">
+        <xs:sequence>
+          <xs:element name="bridge_name" type="_basic_bridge_name-type">
+            <xs:annotation>
+              <xs:documentation>Bridge name, must begin with characters "br".</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="forwarding_delay" type="_basic_seconds-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Forwarding Delay in seconds between 0 and 300.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="interfaces" type="_basic_interfaces-type">
+            <xs:annotation>
+              <xs:documentation>Network Interface names.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="stp" type="_basic_switch-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Spanning Tree Protocol.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="bridge" type="bridge-type" substitutionGroup="interface-base"/>
+  <xs:complexType name="bridge-link-type">
+    <xs:annotation>
+      <xs:documentation>A bridge interface.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="interface-base-link-type">
+        <xs:sequence>
+          <xs:element name="bridge_name" type="_basic_bridge_name-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Bridge name, must begin with characters "br".</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="forwarding_delay" type="_basic_seconds-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Forwarding Delay in seconds between 0 and 300.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="interfaces" type="_basic_interfaces-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Network Interface names.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="stp" type="_basic_switch-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Spanning Tree Protocol.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="bridge-link" type="bridge-link-type" substitutionGroup="interface-base-link"/>
+</xs:schema>

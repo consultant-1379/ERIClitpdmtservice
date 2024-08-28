@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- libvirt_extension.libvirt_extension.LibvirtExtension -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="libvirt_extension/_libvirt_ram_size.xsd"/>
+  <xs:include schemaLocation="libvirt_extension/_libvirt_cpu_number.xsd"/>
+  <xs:include schemaLocation="libvirt_extension/libvirt-provider.xsd"/>
+  <xs:include schemaLocation="libvirt_extension/libvirt-system.xsd"/>
+</xs:schema>

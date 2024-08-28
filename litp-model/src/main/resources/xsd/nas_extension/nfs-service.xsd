@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- nas_extension.nas_extension.NasExtension.nfs-service -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../core_extension/_basic_string.xsd"/>
+  <xs:include schemaLocation="../core_extension/_ipv4_address.xsd"/>
+  <xs:include schemaLocation="../core_extension/storage-provider-base.xsd"/>
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:include schemaLocation="nfs-export.xsd"/>
+  <xs:include schemaLocation="nfs-virtual-server.xsd"/>
+  <xs:complexType name="nfs-service-type">
+    <xs:annotation>
+      <xs:documentation>The nfs service item type</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="storage-provider-base-type">
+        <xs:sequence>
+          <xs:element name="management_ip" type="_ipv4_address-type">
+            <xs:annotation>
+              <xs:documentation>Management IP address of the server</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="password" type="_basic_string-type">
+            <xs:annotation>
+              <xs:documentation>Login details: password</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="service_name" type="_basic_string-type">
+            <xs:annotation>
+              <xs:documentation>The name of the nas server</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="type" type="_basic_string-type">
+            <xs:annotation>
+              <xs:documentation>The type of the nas serverRHEL or SFS</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="user_name" type="_basic_string-type">
+            <xs:annotation>
+              <xs:documentation>Login details: username</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="exports" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of nfs-export</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="nfs-export" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="ip_addresses" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of nfs-virtual-server</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="nfs-virtual-server" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="nfs-service" type="nfs-service-type" substitutionGroup="storage-provider-base"/>
+  <xs:complexType name="nfs-service-link-type">
+    <xs:annotation>
+      <xs:documentation>The nfs service item type</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="storage-provider-base-link-type">
+        <xs:sequence>
+          <xs:element name="management_ip" type="_ipv4_address-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Management IP address of the server</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="password" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Login details: password</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="service_name" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The name of the nas server</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="type" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The type of the nas serverRHEL or SFS</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="user_name" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Login details: username</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="nfs-service-link" type="nfs-service-link-type" substitutionGroup="storage-provider-base-link"/>
+</xs:schema>

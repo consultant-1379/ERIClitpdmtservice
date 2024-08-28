@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- litp.extensions.core_extension.CoreExtension.blade -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="bmc-base.xsd"/>
+  <xs:include schemaLocation="system.xsd"/>
+  <xs:complexType name="blade-type">
+    <xs:annotation>
+      <xs:documentation>A blade system.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="system-type">
+        <xs:sequence>
+          <xs:element ref="bmc-base" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Child of bmc-base</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="blade" type="blade-type" substitutionGroup="system"/>
+  <xs:complexType name="blade-link-type">
+    <xs:annotation>
+      <xs:documentation>A blade system.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="system-link-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="blade-link" type="blade-link-type" substitutionGroup="system-link"/>
+</xs:schema>

@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- litp.extensions.core_extension.CoreExtension.root -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="deployment.xsd"/>
+  <xs:include schemaLocation="infrastructure.xsd"/>
+  <xs:include schemaLocation="ms.xsd"/>
+  <xs:include schemaLocation="plan.xsd"/>
+  <xs:include schemaLocation="snapshot-base.xsd"/>
+  <xs:include schemaLocation="software.xsd"/>
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:complexType name="root-type">
+    <xs:annotation>
+      <xs:documentation>root item for /.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-type">
+        <xs:sequence>
+          <xs:element name="deployments" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of deployment</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="deployment" minOccurs="0" maxOccurs="99"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element ref="infrastructure">
+            <xs:annotation>
+              <xs:documentation>Child of infrastructure</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element ref="ms">
+            <xs:annotation>
+              <xs:documentation>Child of ms</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="plans" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of plan</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="plan" minOccurs="0" maxOccurs="1"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="snapshots" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of snapshot-base</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="snapshot-base" minOccurs="0" maxOccurs="1"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element ref="software">
+            <xs:annotation>
+              <xs:documentation>Child of software</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="root" type="root-type"/>
+  <xs:complexType name="root-link-type">
+    <xs:annotation>
+      <xs:documentation>root item for /.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-link-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="root-link" type="root-link-type"/>
+</xs:schema>

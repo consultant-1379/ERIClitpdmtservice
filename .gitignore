@@ -1,0 +1,18 @@
+# Compiled source #
+*.class
+*/bin/*
+
+# Eclipse files
+.project
+.classpath
+.settings
+
+# Tmp Folder
+tmp/
+
+#test-output
+test-output/
+
+#Executables
+curl.exe
+lib*.dll

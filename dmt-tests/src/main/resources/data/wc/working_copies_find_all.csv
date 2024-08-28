@@ -1,0 +1,2 @@
+workingCopyURL,expectedResponseCode,expectedDescription,expectedMode
+dmt/rest/wc,200,"Real deployment model managed by a LITP server","Live"

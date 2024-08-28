@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- litp.extensions.core_extension.CoreExtension.storage-profile-base -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="_basic_string.xsd"/>
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:complexType name="storage-profile-base-type">
+    <xs:annotation>
+      <xs:documentation>A description of volume groups and file systems that live on them.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-type">
+        <xs:sequence>
+          <xs:element name="storage_profile_name" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Name of storage profile.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="storage-profile-base" type="storage-profile-base-type"/>
+  <xs:complexType name="storage-profile-base-link-type">
+    <xs:annotation>
+      <xs:documentation>A description of volume groups and file systems that live on them.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-link-type">
+        <xs:sequence>
+          <xs:element name="storage_profile_name" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Name of storage profile.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="storage-profile-base-link" type="storage-profile-base-link-type"/>
+</xs:schema>

@@ -1,0 +1,44 @@
+{
+  "_embedded": {
+    "item": [
+      {
+        "item-type-name": "cobbler-service",
+        "state": "Initial",
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/ms/services/cobbler"
+          },
+          "item-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/cobbler-service"
+          }
+        },
+        "id": "cobbler",
+        "properties": {
+          "ksm_ksname": "litp.ks",
+          "manage_dns": "false",
+          "puppet_auto_setup": "true",
+          "ksm_path": "/var/lib/cobbler/kickstarts",
+          "manage_dhcp": "true",
+          "authentication": "authn_configfile",
+          "remove_old_puppet_certs_automatically": "true",
+          "sign_puppet_certs_automatically": "true",
+          "boot_network": "nodes",
+          "rsync_disabled": "false",
+          "ksm_selinux_mode": "enforcing"
+        }
+      }
+    ]
+  },
+  "required": "network_profile",
+  "item-type-name": "collection-of-ms-service",
+  "state": "Initial",
+  "_links": {
+    "self": {
+      "href": "https://ms1:9999/litp/rest/v1/ms_with_full_collection/services"
+    },
+    "collection-of": {
+      "href": "https://ms1:9999/litp/rest/v1/item-types/ms-service"
+    }
+  },
+  "id": "services"
+}

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- volmgr_extension.volmgr_extension.VolMgrExtension.physical-device -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:include schemaLocation="_disk_id.xsd"/>
+  <xs:complexType name="physical-device-type">
+    <xs:annotation>
+      <xs:documentation>A physical-device.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-type">
+        <xs:sequence>
+          <xs:element name="device_name" type="_disk_id-type">
+            <xs:annotation>
+              <xs:documentation>Identifier of Physical-Device Item.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="physical-device" type="physical-device-type"/>
+  <xs:complexType name="physical-device-link-type">
+    <xs:annotation>
+      <xs:documentation>A physical-device.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-link-type">
+        <xs:sequence>
+          <xs:element name="device_name" type="_disk_id-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Identifier of Physical-Device Item.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="physical-device-link" type="physical-device-link-type"/>
+</xs:schema>

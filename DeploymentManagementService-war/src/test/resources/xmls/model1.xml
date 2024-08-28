@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns1:root xmlns:ns1="http://www.ericsson.com/litp" id="root">
+  <deployments />
+  <ns1:infrastructure id="infrastructure">
+    <items />
+    <system_providers />
+    <systems>
+      <ns1:blade id="bladex">
+        <system_name>bbb</system_name>
+        <disks>
+          <ns1:scsi-block-device id="scsi1">
+            <bootable>true</bootable>
+            <name>aaaaa</name>
+            <size>10G</size>
+            <uuid>abcedefg</uuid>
+          </ns1:scsi-block-device>
+        </disks>
+        <network_interfaces />
+      </ns1:blade>
+    </systems>
+  </ns1:infrastructure>
+  <ns1:ms id="ms">
+    <hostname>ms1</hostname>
+    <ipaddresses />
+    <items />
+    <services />
+  </ns1:ms>
+  <ns1:software id="software">
+    <deployables />
+    <items />
+    <profiles />
+    <runtimes />
+  </ns1:software>
+</ns1:root>
+

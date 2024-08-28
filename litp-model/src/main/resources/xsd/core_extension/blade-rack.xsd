@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- litp.extensions.core_extension.CoreExtension.blade-rack -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="blade.xsd"/>
+  <xs:include schemaLocation="system.xsd"/>
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:complexType name="blade-rack-type">
+    <xs:annotation>
+      <xs:documentation>A blade rack.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="system-type">
+        <xs:sequence>
+          <xs:element name="blades" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of blade</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="blade" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="blade-rack" type="blade-rack-type" substitutionGroup="system"/>
+  <xs:complexType name="blade-rack-link-type">
+    <xs:annotation>
+      <xs:documentation>A blade rack.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="system-link-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="blade-rack-link" type="blade-rack-link-type" substitutionGroup="system-link"/>
+</xs:schema>

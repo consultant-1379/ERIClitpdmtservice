@@ -1,0 +1,65 @@
+{
+  "_embedded": {
+    "item": [
+      {
+        "item-type-name": "bmc",
+        "state": "Initial",
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/infrastructure/systems/blade2/bmc"
+          },
+          "item-type": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/bmc"
+          }
+        },
+        "id": "bmc",
+        "properties": {
+          "username": "anyuser",
+          "ipaddress": "192.168.160.1",
+          "password_key": "asdfgzxcv1"
+        }
+      },
+      {
+        "item-type-name": "collection-of-disk",
+        "state": "Initial",
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/infrastructure/systems/blade2/disks"
+          },
+          "collection-of": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/disk"
+          }
+        },
+        "id": "disks"
+      },
+      {
+        "item-type-name": "collection-of-nic",
+        "state": "Initial",
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/infrastructure/systems/blade2/network_interfaces"
+          },
+          "collection-of": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/nic"
+          }
+        },
+        "id": "network_interfaces"
+      }
+    ]
+  },
+  "properties": {
+    "system_name": "testblade",
+    "serial": "testblade"
+  },
+  "item-type-name": "blade",
+  "state": "Initial",
+  "_links": {
+    "self": {
+      "href": "https://ms1:9999/litp/rest/v1/infrastructure/systems/blade2"
+    },
+    "item-type": {
+      "href": "https://ms1:9999/litp/rest/v1/item-types/blade"
+    }
+  },
+  "id": "blade2"
+}

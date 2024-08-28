@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- litp.extensions.core_extension.CoreExtension.plan -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="_plan_state.xsd"/>
+  <xs:include schemaLocation="phase.xsd"/>
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:complexType name="plan-type">
+    <xs:annotation>
+      <xs:documentation>A plan.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-type">
+        <xs:sequence>
+          <xs:element name="state" type="_plan_state-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>State of the plan.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="phases">
+            <xs:annotation>
+              <xs:documentation>Collection of phase</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="phase" minOccurs="1" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="plan" type="plan-type"/>
+  <xs:complexType name="plan-link-type">
+    <xs:annotation>
+      <xs:documentation>A plan.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-link-type">
+        <xs:sequence>
+          <xs:element name="state" type="_plan_state-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>State of the plan.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="plan-link" type="plan-link-type"/>
+</xs:schema>

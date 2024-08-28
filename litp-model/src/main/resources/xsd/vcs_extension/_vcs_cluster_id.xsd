@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- vcs_extension.vcs_extension.VcsExtension._vcs_cluster_id -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="_vcs_cluster_id-type">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="([1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- yum_extension.yum_extension.YumExtension.yum-repository -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../core_extension/_basic_boolean.xsd"/>
+  <xs:include schemaLocation="../core_extension/_path_string.xsd"/>
+  <xs:include schemaLocation="../core_extension/software-item.xsd"/>
+  <xs:include schemaLocation="_yum_base_url.xsd"/>
+  <xs:include schemaLocation="_yum_name.xsd"/>
+  <xs:complexType name="yum-repository-type">
+    <xs:complexContent>
+      <xs:extension base="software-item-type">
+        <xs:sequence>
+          <xs:element name="base_url" type="_yum_base_url-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Yum Repository URL.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="cache_metadata" type="_basic_boolean-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Controls Yum metadata cache behaviour.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ms_url_path" type="_path_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Yum Repository Path on MS.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="_yum_name-type">
+            <xs:annotation>
+              <xs:documentation>Yum Repository Name.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="yum-repository" type="yum-repository-type" substitutionGroup="software-item"/>
+  <xs:complexType name="yum-repository-link-type">
+    <xs:complexContent>
+      <xs:extension base="software-item-link-type">
+        <xs:sequence>
+          <xs:element name="base_url" type="_yum_base_url-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Yum Repository URL.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="cache_metadata" type="_basic_boolean-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Controls Yum metadata cache behaviour.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ms_url_path" type="_path_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Yum Repository Path on MS.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="_yum_name-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Yum Repository Name.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="yum-repository-link" type="yum-repository-link-type" substitutionGroup="software-item-link"/>
+</xs:schema>

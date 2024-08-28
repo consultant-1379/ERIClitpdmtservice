@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- cba_extension.cba_extension.CBAExtension.jee-deployable-entity -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../core_extension/_basic_string.xsd"/>
+  <xs:include schemaLocation="../core_extension/_path_string.xsd"/>
+  <xs:include schemaLocation="../core_extension/deployable-entity.xsd"/>
+  <xs:include schemaLocation="../package_extension/package.xsd"/>
+  <xs:complexType name="jee-deployable-entity-type">
+    <xs:annotation>
+      <xs:documentation>JEE deployable entity</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="deployable-entity-type">
+        <xs:sequence>
+          <xs:element name="install_source" type="_path_string-type">
+            <xs:annotation>
+              <xs:documentation>Path to the file delivered by package</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="_basic_string-type">
+            <xs:annotation>
+              <xs:documentation>Name of the Deployable entity</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element ref="package-link" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Reference to package</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="jee-deployable-entity" type="jee-deployable-entity-type" substitutionGroup="deployable-entity"/>
+  <xs:complexType name="jee-deployable-entity-link-type">
+    <xs:annotation>
+      <xs:documentation>JEE deployable entity</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="deployable-entity-link-type">
+        <xs:sequence>
+          <xs:element name="install_source" type="_path_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Path to the file delivered by package</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Name of the Deployable entity</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="jee-deployable-entity-link" type="jee-deployable-entity-link-type" substitutionGroup="deployable-entity-link"/>
+</xs:schema>

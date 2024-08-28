@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- hosts_extension.hostsextension.HostsExtension.alias -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../core_extension/_basic_string.xsd"/>
+  <xs:include schemaLocation="../core_extension/_ipv4_or_ipv6_address.xsd"/>
+  <xs:include schemaLocation="../core_extension/service-provider.xsd"/>
+  <xs:include schemaLocation="_comma_separated_hostnames.xsd"/>
+  <xs:complexType name="alias-type">
+    <xs:complexContent>
+      <xs:extension base="service-provider-type">
+        <xs:sequence>
+          <xs:element name="address" type="_ipv4_or_ipv6_address-type">
+            <xs:annotation>
+              <xs:documentation>IP address of aliased service</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="alias_names" type="_comma_separated_hostnames-type">
+            <xs:annotation>
+              <xs:documentation>name to use for alias</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="_basic_string-type">
+            <xs:annotation>
+              <xs:documentation>Unique name of this alias</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="alias" type="alias-type" substitutionGroup="service-provider"/>
+  <xs:complexType name="alias-link-type">
+    <xs:complexContent>
+      <xs:extension base="service-provider-link-type">
+        <xs:sequence>
+          <xs:element name="address" type="_ipv4_or_ipv6_address-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>IP address of aliased service</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="alias_names" type="_comma_separated_hostnames-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>name to use for alias</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Unique name of this alias</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="alias-link" type="alias-link-type" substitutionGroup="service-provider-link"/>
+</xs:schema>

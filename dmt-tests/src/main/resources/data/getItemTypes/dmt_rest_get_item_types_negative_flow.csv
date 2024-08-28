@@ -1,0 +1,3 @@
+mode,baseURL,nodeURL,expectedResponseCode,expectedErrorMessage,expectedErrorType
+live,dmt/rest/wc/,model/deployments/addable_types,404,Not found,InvalidLocationError
+local,dmt/rest/wc/,model/deployments/addable_types,404,Not found,InvalidLocationError

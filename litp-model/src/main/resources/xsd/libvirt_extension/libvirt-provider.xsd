@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- libvirt_extension.libvirt_extension.LibvirtExtension.libvirt-provider -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../core_extension/_basic_string.xsd"/>
+  <xs:include schemaLocation="../core_extension/system-provider.xsd"/>
+  <xs:include schemaLocation="libvirt-system.xsd"/>
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:complexType name="libvirt-provider-type">
+    <xs:annotation>
+      <xs:documentation>libvirt Virtual Machine provider.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="system-provider-type">
+        <xs:sequence>
+          <xs:element name="bridge" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Bridge interface name.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="_basic_string-type">
+            <xs:annotation>
+              <xs:documentation>Name of this libvirt-provider.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="systems" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Collection of libvirt-system</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="libvirt-system" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="libvirt-provider" type="libvirt-provider-type" substitutionGroup="system-provider"/>
+  <xs:complexType name="libvirt-provider-link-type">
+    <xs:annotation>
+      <xs:documentation>libvirt Virtual Machine provider.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="system-provider-link-type">
+        <xs:sequence>
+          <xs:element name="bridge" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Bridge interface name.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Name of this libvirt-provider.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="libvirt-provider-link" type="libvirt-provider-link-type" substitutionGroup="system-provider-link"/>
+</xs:schema>

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- bootmgr_extension.bootmgr_extension.BootManagerExtension._cobbler_authentication -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="_cobbler_authentication-type">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="((authn_configfile)|(authn_testing))"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

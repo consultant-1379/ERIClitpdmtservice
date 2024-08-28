@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- hosts_extension.hostsextension.HostsExtension.alias-node-config -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../core_extension/node-config.xsd"/>
+  <xs:include schemaLocation="alias.xsd"/>
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:complexType name="alias-node-config-type">
+    <xs:complexContent>
+      <xs:extension base="node-config-type">
+        <xs:sequence>
+          <xs:element name="aliases" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Ref-collection of alias</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="alias-link" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="alias-node-config" type="alias-node-config-type" substitutionGroup="node-config"/>
+  <xs:complexType name="alias-node-config-link-type">
+    <xs:complexContent>
+      <xs:extension base="node-config-link-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="alias-node-config-link" type="alias-node-config-link-type" substitutionGroup="node-config-link"/>
+</xs:schema>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<software id="software" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../litp-model/src/main/resources/xsd/core_extension/software.xsd">
+  <deployables>
+    <deployable-entity id="deployableentity" />
+  </deployables>
+  <items>
+    <software-item id="softwareItem"/>
+  </items>
+  <profiles>
+    <profile id="profile"/>
+  </profiles>
+  <runtimes>
+    <runtime-entity id="runtimeEntity"/>
+  </runtimes>
+</software>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://www.ericsson.com/dmt/multiple_declared_elements"
+xmlns:dmt="http://www.ericsson.com/dmt/multiple_declared_elements">
+
+	<complexType name="person_type">
+		<sequence>
+			<element name="firstName" type="string" />
+			<element name="age" type="integer" />
+		</sequence>
+	</complexType>
+	
+	<complexType name="dog_type">
+		<sequence>
+			<element name="name" type="string" />
+		</sequence>
+	</complexType>
+
+	<element name="person" type="dmt:person_type" />
+	<element name="dog" type="dmt:dog_type" />
+</schema>

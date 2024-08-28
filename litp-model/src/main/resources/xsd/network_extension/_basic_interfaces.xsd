@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- network_extension.network_extension.NetworkExtension._basic_interfaces -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="_basic_interfaces-type">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(([^-,]+)(, *[^-,]+)*)"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

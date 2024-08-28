@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--LITP-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ericsson.com/litp">
+  <xs:include schemaLocation="litp-base.xsd"/>
+  <xs:include schemaLocation="libvirt_plugin.xsd"/>
+  <xs:include schemaLocation="ipmi_plugin.xsd"/>
+  <xs:include schemaLocation="ntp_extension.xsd"/>
+  <xs:include schemaLocation="hosts_extension.xsd"/>
+  <xs:include schemaLocation="core_extension.xsd"/>
+  <xs:include schemaLocation="yum_extension.xsd"/>
+  <xs:include schemaLocation="cmw.xsd"/>
+  <xs:include schemaLocation="bootmgr_plugin.xsd"/>
+  <xs:include schemaLocation="hosts_plugin.xsd"/>
+  <xs:include schemaLocation="network_extension.xsd"/>
+  <xs:include schemaLocation="bmc_extension.xsd"/>
+  <xs:include schemaLocation="volmgr.xsd"/>
+  <xs:include schemaLocation="ntp_plugin.xsd"/>
+  <xs:include schemaLocation="libvirt_extension.xsd"/>
+  <xs:include schemaLocation="vcs_extension.xsd"/>
+  <xs:include schemaLocation="package_plugin.xsd"/>
+  <xs:include schemaLocation="bootmgr_extension.xsd"/>
+  <xs:include schemaLocation="yum_plugin.xsd"/>
+  <xs:include schemaLocation="nas_plugin.xsd"/>
+  <xs:include schemaLocation="cba_extension.xsd"/>
+  <xs:include schemaLocation="core_plugin.xsd"/>
+  <xs:include schemaLocation="network_plugin.xsd"/>
+  <xs:include schemaLocation="volmgr_extension.xsd"/>
+  <xs:include schemaLocation="package_extension.xsd"/>
+  <xs:include schemaLocation="vcs.xsd"/>
+  <xs:include schemaLocation="nas_extension.xsd"/>
+</xs:schema>

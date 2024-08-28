@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ms id="ms" version="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <hostname>hostname</hostname>
+  <ipaddresses />
+  <items />
+  <services>
+    <ms-service id=""/>
+  </services>
+</ms>

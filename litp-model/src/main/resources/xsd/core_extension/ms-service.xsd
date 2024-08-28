@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- litp.extensions.core_extension.CoreExtension.ms-service -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:complexType name="ms-service-type">
+    <xs:annotation>
+      <xs:documentation>Base type for services (e.g. cobbler) modelled on the MS.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ms-service" type="ms-service-type"/>
+  <xs:complexType name="ms-service-link-type">
+    <xs:annotation>
+      <xs:documentation>Base type for services (e.g. cobbler) modelled on the MS.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-link-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ms-service-link" type="ms-service-link-type"/>
+</xs:schema>

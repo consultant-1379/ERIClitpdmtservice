@@ -1,0 +1,87 @@
+{
+  "_embedded": {
+    "item": [
+      {
+        "item-type-name": "collection-of-software-item",
+        "state": "Initial",
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/ms/items"
+          },
+          "collection-of": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/software-item"
+          }
+        },
+        "id": "items"
+      },
+      {
+        "required": "services",
+        "properties": {
+          "name": "libvirt2"
+        },
+        "item-type-name": "reference-to-libvirt-provider",
+        "state": "Initial",
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/ms/libvirt"
+          }
+        },
+        "id": "libvirt"
+      },
+      {
+        "item-type-name": "reference-to-network-profile",
+        "state": "Initial",
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/ms/network_profile"
+          }
+        },
+        "id": "network_profile",
+        "properties": {
+          "name": "libvirt_provider2"
+        }
+      },
+      {
+        "item-type-name": "collection-of-ip-range",
+        "state": "Initial",
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/ms/ipaddresses"
+          },
+          "collection-of": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/ip-range"
+          }
+        },
+        "id": "ipaddresses"
+      },
+      {
+        "item-type-name": "collection-of-ms-service",
+        "state": "Initial",
+        "required": "network_profile",
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/ms/services"
+          },
+          "collection-of": {
+            "href": "https://ms1:9999/litp/rest/v1/item-types/ms-service"
+          }
+        },
+        "id": "services"
+      }
+    ]
+  },
+  "properties": {
+    "hostname": "ms1"
+  },
+  "item-type-name": "ms",
+  "state": "Initial",
+  "_links": {
+    "self": {
+      "href": "https://ms1:9999/litp/rest/v1/ms"
+    },
+    "item-type": {
+      "href": "https://ms1:9999/litp/rest/v1/item-types/ms"
+    }
+  },
+  "id": "ms"
+}

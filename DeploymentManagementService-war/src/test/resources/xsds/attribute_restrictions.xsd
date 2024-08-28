@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://www.ericsson.com/dmt/attribute_restrictions"
+	xmlns:dmt="http://www.ericsson.com/dmt/attribute_restrictions">
+
+	<complexType name="person_type">
+		<attribute name="gender">
+			<simpleType>
+				<restriction base="string">
+					<pattern value="(Male|Female)" />
+				</restriction>
+			</simpleType>
+		</attribute>
+	</complexType>
+
+	<element name="person" type="dmt:person_type" />
+</schema>

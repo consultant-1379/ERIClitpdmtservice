@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- litp.extensions.core_extension.CoreExtension.nic -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="_basic_string.xsd"/>
+  <xs:include schemaLocation="_mac_address.xsd"/>
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:complexType name="nic-type">
+    <xs:annotation>
+      <xs:documentation>A network interface.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-type">
+        <xs:sequence>
+          <xs:element name="interface_name" type="_basic_string-type">
+            <xs:annotation>
+              <xs:documentation>Interface name for the NIC</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="macaddress" type="_mac_address-type">
+            <xs:annotation>
+              <xs:documentation>MAC address of this NIC</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="nic" type="nic-type"/>
+  <xs:complexType name="nic-link-type">
+    <xs:annotation>
+      <xs:documentation>A network interface.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-link-type">
+        <xs:sequence>
+          <xs:element name="interface_name" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Interface name for the NIC</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="macaddress" type="_mac_address-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>MAC address of this NIC</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="nic-link" type="nic-link-type"/>
+</xs:schema>

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- package_extension.package_extension.PackageExtension._package_config -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="_package_config-type">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(keep|replace)"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

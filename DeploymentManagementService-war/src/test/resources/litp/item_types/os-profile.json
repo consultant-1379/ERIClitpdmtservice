@@ -1,0 +1,84 @@
+{
+  "properties": {
+    "name": {
+      "regex": "^[a-zA-Z0-9\\-\\._]+$",
+      "required": true,
+      "_links": {
+        "self": {
+          "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+        }
+      },
+      "id": "basic_string",
+      "description": "Name of profile."
+    },
+    "kopts_post": {
+      "regex": "^[^=]*[=]{1,1}[^=]*$",
+      "description": "OS post-kernel options.",
+      "default": "console=ttyS0,115200",
+      "required": true,
+      "_links": {
+        "self": {
+          "href": "https://ms1:9999/litp/rest/v1/property-types/kopts_post"
+        }
+      },
+      "id": "kopts_post"
+    },
+    "breed": {
+      "regex": "^[a-zA-Z0-9\\-\\._]+$",
+      "description": "Breedtecture of OS.",
+      "default": "redhat",
+      "required": true,
+      "_links": {
+        "self": {
+          "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+        }
+      },
+      "id": "basic_string"
+    },
+    "version": {
+      "regex": "^rhel6$",
+      "description": "Version of OS profile.",
+      "default": "rhel6",
+      "required": true,
+      "_links": {
+        "self": {
+          "href": "https://ms1:9999/litp/rest/v1/property-types/os_version"
+        }
+      },
+      "id": "os_version"
+    },
+    "path": {
+      "regex": "^[A-Za-z0-9\\-\\._/#:\\s*]+$",
+      "required": true,
+      "_links": {
+        "self": {
+          "href": "https://ms1:9999/litp/rest/v1/property-types/file_path_string"
+        }
+      },
+      "id": "file_path_string",
+      "description": "Path to OS image."
+    },
+    "arch": {
+      "regex": "^[a-zA-Z0-9\\-\\._]+$",
+      "description": "Architecture of OS.",
+      "default": "x86_64",
+      "required": true,
+      "_links": {
+        "self": {
+          "href": "https://ms1:9999/litp/rest/v1/property-types/basic_string"
+        }
+      },
+      "id": "basic_string"
+    }
+  },
+  "_links": {
+    "base-type": {
+      "href": "https://ms1:9999/litp/rest/v1/item-types/profile"
+    },
+    "self": {
+      "href": "https://ms1:9999/litp/rest/v1/item-types/os-profile"
+    }
+  },
+  "id": "os-profile",
+  "description": "OS profile for a node."
+}

@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- cba_extension.cba_extension.CBAExtension -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="cba_extension/_pkg_version.xsd"/>
+  <xs:include schemaLocation="cba_extension/_cluster_id.xsd"/>
+  <xs:include schemaLocation="cba_extension/_quick_reboot.xsd"/>
+  <xs:include schemaLocation="cba_extension/cmw-cluster.xsd"/>
+  <xs:include schemaLocation="cba_extension/jee-container.xsd"/>
+  <xs:include schemaLocation="cba_extension/jee-deployable-entity.xsd"/>
+  <xs:include schemaLocation="cba_extension/lsb-runtime.xsd"/>
+</xs:schema>

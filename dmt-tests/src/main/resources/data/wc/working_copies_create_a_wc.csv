@@ -1,0 +1,2 @@
+wcURL,requestBody,expectedCreateResponseCode,createdWCDescription,createdWCMode
+dmt/rest/wc,"{""name"":""Working copy 1"",""description"":""This is TAF REST Test Created Working Copy""}",201,"This is TAF REST Test Created Working Copy","Local"

@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- nas_extension.nas_extension.NasExtension.nfs-virtual-server -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../core_extension/_basic_string.xsd"/>
+  <xs:include schemaLocation="../core_extension/_ipv4_address.xsd"/>
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:complexType name="nfs-virtual-server-type">
+    <xs:annotation>
+      <xs:documentation>This item represents an ip that the export will be </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-type">
+        <xs:sequence>
+          <xs:element name="address" type="_ipv4_address-type">
+            <xs:annotation>
+              <xs:documentation>IP address associated with a collection of shares</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="_basic_string-type">
+            <xs:annotation>
+              <xs:documentation>The name of the virtual ip</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="nfs-virtual-server" type="nfs-virtual-server-type"/>
+  <xs:complexType name="nfs-virtual-server-link-type">
+    <xs:annotation>
+      <xs:documentation>This item represents an ip that the export will be </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-link-type">
+        <xs:sequence>
+          <xs:element name="address" type="_ipv4_address-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>IP address associated with a collection of shares</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The name of the virtual ip</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="nfs-virtual-server-link" type="nfs-virtual-server-link-type"/>
+</xs:schema>

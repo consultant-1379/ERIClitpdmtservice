@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- litp.extensions.core_extension.CoreExtension.runtime-entity -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="_path_string.xsd"/>
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:include schemaLocation="../package_extension/package.xsd"/>
+  <xs:complexType name="runtime-entity-type">
+    <xs:annotation>
+      <xs:documentation>Base runtime entity item.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-type">
+        <xs:sequence>
+          <xs:element name="cleanup_command" type="_path_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Command to cleanup runtime entity</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="start_command" type="_path_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Command to start runtime entity</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="status_command" type="_path_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Command to healthcheck runtime entity</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="stop_command" type="_path_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Command to stop runtime entity</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="packages" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Ref-collection of package</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="basecollection-type">
+                  <xs:sequence>
+                    <xs:element ref="package-link" minOccurs="0" maxOccurs="9999"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="runtime-entity" type="runtime-entity-type"/>
+  <xs:complexType name="runtime-entity-link-type">
+    <xs:annotation>
+      <xs:documentation>Base runtime entity item.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-link-type">
+        <xs:sequence>
+          <xs:element name="cleanup_command" type="_path_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Command to cleanup runtime entity</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="start_command" type="_path_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Command to start runtime entity</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="status_command" type="_path_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Command to healthcheck runtime entity</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="stop_command" type="_path_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Command to stop runtime entity</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="runtime-entity-link" type="runtime-entity-link-type"/>
+</xs:schema>

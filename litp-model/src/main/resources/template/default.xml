@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<litp:root id="root" xmlns:litp="http://www.ericsson.com/litp">
+	<deployments />
+	<litp:infrastructure id="infrastructure">
+		<items />
+		<system_providers />
+		<systems />
+	</litp:infrastructure>
+	<litp:ms id="ms">
+		<hostname>ms1</hostname>
+		<ipaddresses />
+		<items />
+		<services />
+	</litp:ms>
+<!--	<plans /> -->
+	<litp:software id="software">
+		<deployables />
+		<items />
+		<profiles />
+		<runtimes />
+	</litp:software>
+</litp:root>

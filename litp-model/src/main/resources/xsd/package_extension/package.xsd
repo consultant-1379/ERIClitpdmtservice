@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- package_extension.package_extension.PackageExtension.package -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../core_extension/_any_string.xsd"/>
+  <xs:include schemaLocation="../core_extension/_basic_string.xsd"/>
+  <xs:include schemaLocation="../core_extension/software-item.xsd"/>
+  <xs:include schemaLocation="_package_config.xsd"/>
+  <xs:include schemaLocation="_package_version.xsd"/>
+  <xs:complexType name="package-type">
+    <xs:annotation>
+      <xs:documentation>Software package to install.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="software-item-type">
+        <xs:sequence>
+          <xs:element name="arch" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Architecture (cpu) of package to install/remove.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="config" type="_package_config-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Handling of pre-existing configuration files. Must be either 'keep' or 'replace'.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="_basic_string-type">
+            <xs:annotation>
+              <xs:documentation>Name of package to install/remove.Needs to match the filename of the underlying RPM.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="release" type="_any_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Release number of package to install/remove.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="repository" type="_any_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Name of repository to get Package.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="version" type="_package_version-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Package version to install/remove.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="package" type="package-type" substitutionGroup="software-item"/>
+  <xs:complexType name="package-link-type">
+    <xs:annotation>
+      <xs:documentation>Software package to install.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="software-item-link-type">
+        <xs:sequence>
+          <xs:element name="arch" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Architecture (cpu) of package to install/remove.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="config" type="_package_config-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Handling of pre-existing configuration files. Must be either 'keep' or 'replace'.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="_basic_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Name of package to install/remove.Needs to match the filename of the underlying RPM.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="release" type="_any_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Release number of package to install/remove.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="repository" type="_any_string-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Name of repository to get Package.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="version" type="_package_version-type" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Package version to install/remove.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="package-link" type="package-link-type" substitutionGroup="software-item-link"/>
+</xs:schema>

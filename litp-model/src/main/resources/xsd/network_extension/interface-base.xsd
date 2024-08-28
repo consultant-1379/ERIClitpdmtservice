@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- network_extension.network_extension.NetworkExtension.interface-base -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../litp-base.xsd"/>
+  <xs:complexType name="interface-base-type">
+    <xs:annotation>
+      <xs:documentation>Base interface item.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="interface-base" type="interface-base-type"/>
+  <xs:complexType name="interface-base-link-type">
+    <xs:annotation>
+      <xs:documentation>Base interface item.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="baseitem-link-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="interface-base-link" type="interface-base-link-type"/>
+</xs:schema>

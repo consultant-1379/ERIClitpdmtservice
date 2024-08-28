@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- network_extension.network_extension.NetworkExtension -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="network_extension/_basic_switch.xsd"/>
+  <xs:include schemaLocation="network_extension/_basic_seconds.xsd"/>
+  <xs:include schemaLocation="network_extension/_basic_bridge.xsd"/>
+  <xs:include schemaLocation="network_extension/_basic_interface.xsd"/>
+  <xs:include schemaLocation="network_extension/_basic_interfaces.xsd"/>
+  <xs:include schemaLocation="network_extension/_basic_bridge_name.xsd"/>
+  <xs:include schemaLocation="network_extension/interface-base.xsd"/>
+  <xs:include schemaLocation="network_extension/network.xsd"/>
+  <xs:include schemaLocation="network_extension/bridge.xsd"/>
+  <xs:include schemaLocation="network_extension/interface.xsd"/>
+  <xs:include schemaLocation="network_extension/network-profile.xsd"/>
+  <xs:include schemaLocation="network_extension/network-route.xsd"/>
+</xs:schema>

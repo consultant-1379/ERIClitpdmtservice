@@ -1,0 +1,45 @@
+{
+  "item-type-name": "ref-collection-of-ip-range",
+  "_embedded": {
+    "item": [
+      {
+        "item-type-name": "reference-to-ip-range",
+        "state": "Initial",
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/ms/ipaddresses/external_ip"
+          }
+        },
+        "id": "external_ip",
+        "properties": {
+          "network_name": "ms_external",
+          "address": "10.44.86.242"
+        }
+      },
+      {
+        "item-type-name": "reference-to-ip-range",
+        "state": "Initial",
+        "_links": {
+          "self": {
+            "href": "https://ms1:9999/litp/rest/v1/ms/ipaddresses/internal_ip"
+          }
+        },
+        "id": "internal_ip",
+        "properties": {
+          "network_name": "nodes",
+          "address": "10.46.71.3"
+        }
+      }
+    ]
+  },
+  "state": "Initial",
+  "_links": {
+    "self": {
+      "href": "https://ms1:9999/litp/rest/v1/ms/ipaddresses"
+    },
+    "ref-collection-of": {
+      "href": "https://ms1:9999/litp/rest/v1/item-types/ip-range"
+    }
+  },
+  "id": "ipaddresses"
+}

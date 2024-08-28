@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- litp.extensions.core_extension.CoreExtension.sata-block-device -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="disk.xsd"/>
+  <xs:complexType name="sata-block-device-type">
+    <xs:annotation>
+      <xs:documentation>Base SATA device.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="disk-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="sata-block-device" type="sata-block-device-type" substitutionGroup="disk"/>
+  <xs:complexType name="sata-block-device-link-type">
+    <xs:annotation>
+      <xs:documentation>Base SATA device.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="disk-link-type">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="sata-block-device-link" type="sata-block-device-link-type" substitutionGroup="disk-link"/>
+</xs:schema>

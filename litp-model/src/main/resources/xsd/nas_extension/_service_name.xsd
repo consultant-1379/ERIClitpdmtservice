@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- nas_extension.nas_extension.NasExtension._service_name -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="_service_name-type">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z0-9\-\._]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

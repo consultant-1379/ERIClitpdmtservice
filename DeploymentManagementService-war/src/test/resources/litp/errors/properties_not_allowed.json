@@ -1,0 +1,19 @@
+{
+    "messages": [
+        {
+            "message": "'a' is not an allowed property of deployment",
+            "type": "PropertyNotAllowedError",
+            "property_name": "a"
+        },
+        {
+            "message": "'b' is not an allowed property of deployment",
+            "type": "PropertyNotAllowedError",
+            "property_name": "b"
+        }
+    ],
+    "_links": {
+        "self": {
+            "href": "https://159.107.167.160:9999/litp/rest/v1/deployments/abc"
+        }
+    }
+}

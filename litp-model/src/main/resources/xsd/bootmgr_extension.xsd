@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- bootmgr_extension.bootmgr_extension.BootManagerExtension -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="bootmgr_extension/_selinux_mode.xsd"/>
+  <xs:include schemaLocation="bootmgr_extension/_cobbler_authentication.xsd"/>
+  <xs:include schemaLocation="bootmgr_extension/cobbler-service.xsd"/>
+</xs:schema>

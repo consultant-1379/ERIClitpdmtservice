@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- network_extension.network_extension.NetworkExtension.interface -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../core_extension/_basic_string.xsd"/>
+  <xs:include schemaLocation="interface-base.xsd"/>
+  <xs:complexType name="interface-type">
+    <xs:annotation>
+      <xs:documentation>A basename for an interface which is used in the naming of that interface</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="interface-base-type">
+        <xs:sequence>
+          <xs:element name="interface_basename" type="_basic_string-type"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="interface" type="interface-type" substitutionGroup="interface-base"/>
+  <xs:complexType name="interface-link-type">
+    <xs:annotation>
+      <xs:documentation>A basename for an interface which is used in the naming of that interface</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="interface-base-link-type">
+        <xs:sequence>
+          <xs:element name="interface_basename" type="_basic_string-type" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="interface-link" type="interface-link-type" substitutionGroup="interface-base-link"/>
+</xs:schema>
